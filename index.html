@@ -285,8 +285,10 @@ footer a:hover{color:var(--gold)}
 }
 
 
-/* Mobile menu visibility: reveal the full-width bar when the menu is opened */
-@media(max-width:760px){.navbar:has(nav.open){display:block!important}}
+
+
+/* Reliable mobile menu toggle: controlled directly on the navigation bar */
+@media(max-width:760px){.navbar.mobile-open{display:block!important}}
 </style>
 </head>
 
@@ -297,7 +299,7 @@ footer a:hover{color:var(--gold)}
 <a href="index.html" class="brand brand-logo" aria-label="PPS18 Property Group home">
 <img class="pps18-header-logo" src="./pps18logo.png?v=10" alt="PPS18 Property Group logo">
 </a>
-<button class="menu" aria-label="Open menu" aria-expanded="false" onclick="const menu=document.querySelector('.navbar nav');const open=menu.classList.toggle('open');this.setAttribute('aria-expanded',open?'true':'false')">☰</button>
+<button class="menu" aria-label="Open menu" aria-expanded="false" onclick="const bar=this.closest('header').querySelector('.navbar');const nav=bar.querySelector('nav');const open=bar.classList.toggle('mobile-open');nav.classList.toggle('open',open);this.setAttribute('aria-expanded',open?'true':'false');this.setAttribute('aria-label',open?'Close menu':'Open menu')">☰</button>
 </div>
 <div class="navbar">
 <div class="container">
