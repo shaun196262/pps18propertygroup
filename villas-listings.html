@@ -9,7 +9,7 @@ header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #
 
 /* Reliable mobile menu toggle: controlled directly on the navigation bar */
 @media(max-width:760px){.navbar.mobile-open{display:block!important}}
-</style></head><body><div class="topline"></div><header>
+.listing-tools{display:grid;grid-template-columns:2fr 1fr auto;gap:12px;align-items:end;background:var(--cream);border:1px solid #e9e5dc;padding:18px;margin:0 0 14px}.listing-tools label{display:flex;flex-direction:column;gap:6px}.listing-tools label span{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy)}.listing-tools input,.listing-tools select{width:100%;height:44px;border:1px solid #d9d4ca;background:#fff;padding:0 12px;font:inherit;font-size:13px;color:var(--text);border-radius:0}.listing-tools button{height:44px;border:0;background:var(--navy);color:#fff;padding:0 16px;font-size:10px;font-weight:700;letter-spacing:.6px;cursor:pointer}.listing-count{font-size:12px;color:var(--muted);margin:0 0 16px}.no-results{grid-column:1/-1;background:var(--cream);border:1px solid #e9e5dc;padding:35px;text-align:center;color:var(--muted)}@media(max-width:600px){.listing-tools{grid-template-columns:1fr 1fr}.listing-search{grid-column:1/-1}.listing-tools button{width:100%}}</style></head><body><div class="topline"></div><header>
 <div class="container nav">
 <a href="index.html" class="brand brand-logo" aria-label="PPS18 Property Group home"><img class="pps18-header-logo" src="./pps18logo.png?v=10" alt="PPS18 Property Group logo"></a>
 <button class="menu" type="button" aria-label="Open menu" aria-expanded="false" onclick="const bar=this.closest('header').querySelector('.navbar');const nav=bar.querySelector('nav');const open=bar.classList.toggle('mobile-open');nav.classList.toggle('open',open);this.setAttribute('aria-expanded',open?'true':'false');this.setAttribute('aria-label',open?'Close menu':'Open menu')">☰</button>
@@ -25,7 +25,7 @@ header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #
 <article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85" alt="Contemporary tropical home"><span class="tag">Premium homes</span></div><div class="card-content"><h3>Premium Homes</h3><p>Contemporary architecture, beautiful interiors and quality locations.</p><a href="#current-listings">VIEW CURRENT LISTINGS →</a></div></article>
 </div>
 </div>
-</section><section class="section" id="current-listings"><div class="container"><div class="current-listings"><div class="current-listings-head"><div class="eyebrow">AVAILABLE NOW</div><h2>Current Villas & Houses Listings</h2><p>Explore properties currently available through PPS18 Property Group. Select a property to view full details and enquire.</p></div><div id="listingGrid" class="listing-grid"><div class="empty"><h3>Loading current listings…</h3><p>Please wait while we load available properties.</p></div></div></div></div></section></main><footer><div class="container">© 2026 PPS18 Property Group · Thailand · <a href="mailto:info@pps18propertygroup.com">info@pps18propertygroup.com</a></div></footer><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</section><section class="section" id="current-listings"><div class="container"><div class="current-listings"><div class="current-listings-head"><div class="eyebrow">AVAILABLE NOW</div><h2>Current Villas & Houses Listings</h2><p>Explore properties currently available through PPS18 Property Group. Select a property to view full details and enquire.</p></div><div class="listing-tools" aria-label="Filter property listings"><label class="listing-search"><span>Search this category</span><input id="propertySearch" type="search" placeholder="Search by location or keyword…"></label><label><span>Availability</span><select id="listingTypeFilter"><option value="">For sale or rent</option><option>For Sale</option><option>For Rent</option><option>For Lease</option><option>For Sublease</option></select></label><button id="clearFilters" type="button">CLEAR</button></div><p id="listingCount" class="listing-count" aria-live="polite"></p><div id="listingGrid" class="listing-grid"><div class="empty"><h3>Loading current listings…</h3><p>Please wait while we load available properties.</p></div></div></div></div></section></main><footer><div class="container">© 2026 PPS18 Property Group · Thailand · <a href="mailto:info@pps18propertygroup.com">info@pps18propertygroup.com</a></div></footer><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (async function(){
  const grid=document.getElementById('listingGrid');
@@ -38,14 +38,30 @@ header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #
   if(category) q=q.eq('category',category);
   const {data,error}=await q;
   if(error) throw error;
-  if(!data||!data.length){grid.innerHTML='<div class="empty"><h3>New listings coming soon</h3><p>There are no published properties in this section yet. Please contact us if you have a particular property or location in mind.</p><a class="btn" href="index.html#contact">MAKE AN ENQUIRY</a></div>';return;}
-  grid.innerHTML=data.map(p=>{
+  const properties=data||[];
+  const search=document.getElementById('propertySearch');
+  const typeSelect=document.getElementById('listingTypeFilter');
+  const count=document.getElementById('listingCount');
+  const render=()=>{
+   const term=search.value.trim().toLowerCase();
+   const typeValue=typeSelect.value;
+   const filtered=properties.filter(p=>{
+    const haystack=[p.title,p.category,p.listing_type,p.location,p.area,p.description].filter(Boolean).join(' ').toLowerCase();
+    return (!term||haystack.includes(term))&&(!typeValue||p.listing_type===typeValue);
+   });
+   count.textContent=filtered.length+' '+(filtered.length===1?'property':'properties')+' found';
+   if(!filtered.length){grid.innerHTML='<div class="no-results"><h3>'+ (properties.length?'No matching properties':'No published properties yet') +'</h3><p>'+(properties.length?'Try another keyword or change the availability filter.':'Please contact PPS18 if you are looking for a property in this category.')+'</p><a class="btn" href="index.html#contact">CONTACT PPS18</a></div>';return;}
+   grid.innerHTML=filtered.map(p=>{
    const photo=p.cover_image||(p.image_urls&&p.image_urls[0]);
    const facts=[p.bedrooms!=null?p.bedrooms+' bedrooms':'',p.bathrooms!=null?p.bathrooms+' bathrooms':'',p.size_sqm!=null?p.size_sqm+' m²':''].filter(Boolean).join(' · ');
    const excerpt=(p.description||'').length>155?p.description.slice(0,152)+'…':(p.description||'');
    const subject=encodeURIComponent('Property enquiry: '+p.title+' ('+p.id+')');
    return '<article class="property-card">'+(photo?'<img loading="lazy" src="'+esc(photo)+'" alt="'+esc(p.title)+'">':'<div class="no-photo">Photographs coming soon</div>')+'<div class="property-body"><span class="property-tag">'+esc(p.listing_type)+'</span><h3>'+esc(p.title)+'</h3><div class="property-meta">'+esc([p.area,p.location].filter(Boolean).join(', '))+'</div><div class="property-price">'+esc(money(p))+'</div>'+(facts?'<div class="property-meta">'+esc(facts)+'</div>':'')+'<p class="property-desc">'+esc(excerpt)+'</p><a class="property-link" href="property.html?id='+encodeURIComponent(p.id)+'">VIEW PROPERTY DETAILS</a></div></article>';
-  }).join('');
+   }).join('');
+  };
+  [search,typeSelect].forEach(el=>el.addEventListener('input',render));
+  document.getElementById('clearFilters').addEventListener('click',()=>{search.value='';typeSelect.value='';render();});
+  render();
  }catch(err){grid.innerHTML='<div class="empty"><h3>Listings are temporarily unavailable</h3><p>Please try again shortly or contact our team directly.</p><a class="btn" href="mailto:info@pps18propertygroup.com">CONTACT PPS18</a></div>';console.error(err);}
 })();
 </script></body></html>
