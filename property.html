@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07172e">
+<title>Property Details | PPS18 Property Group</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#07172e;--gold:#d3ad62;--lightgold:#f1d99d;--cream:#f8f6f1;--text:#283343;--muted:#737d89;--line:#e9e5dc}
+*{box-sizing:border-box}body{margin:0;font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.65}a{text-decoration:none;color:inherit}.container{width:min(1120px,92%);margin:auto}.topline{height:4px;background:linear-gradient(90deg,var(--navy),var(--gold),var(--navy))}header{position:sticky;top:0;background:#fff;z-index:5;box-shadow:0 3px 15px #00000012}.nav{min-height:120px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand img{width:180px;height:115px;object-fit:contain;display:block}nav{display:flex;gap:15px;align-items:center;flex-wrap:wrap}nav a{font-size:10px;font-weight:700;color:var(--navy)}.contact-link{background:var(--navy);color:white;padding:10px 13px}.content{padding:42px 0 70px}.back{display:inline-block;color:#98712d;font-weight:700;font-size:12px;margin-bottom:22px}.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:34px;align-items:start}.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gallery img{width:100%;height:230px;object-fit:cover;background:var(--cream);cursor:pointer}.gallery img:first-child{grid-column:1/-1;height:440px}.no-image{background:var(--cream);height:300px;display:grid;place-items:center;color:var(--muted)}.details h1{font:600 clamp(30px,4vw,44px)/1.15 'Playfair Display',serif;color:var(--navy);margin:10px 0}.eyebrow{font-size:11px;letter-spacing:2px;color:#98712d;font-weight:700;text-transform:uppercase}.meta{color:var(--muted);font-size:14px}.price{font-size:25px;font-weight:700;color:#98712d;margin:18px 0}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.fact{background:var(--cream);padding:13px;border:1px solid var(--line)}.fact strong{display:block;color:var(--navy);font-size:18px}.fact span{font-size:11px;color:var(--muted)}.panel{border:1px solid var(--line);padding:22px;margin-top:20px}.panel h2{font:600 24px 'Playfair Display',serif;color:var(--navy);margin:0 0 12px}.description{white-space:pre-line;color:#4c5663}.features{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}.features li{background:var(--cream);padding:7px 11px;font-size:12px}.btn{display:inline-block;background:var(--gold);color:var(--navy);padding:13px 19px;font-weight:700;font-size:12px;margin-top:12px}.notice{text-align:center;padding:55px 20px;background:var(--cream);border:1px solid var(--line)}footer{background:#041124;color:#c5ced9;padding:28px 0;text-align:center;font-size:12px}footer a{color:var(--lightgold)}@media(max-width:800px){.layout{grid-template-columns:1fr}.gallery img:first-child{height:330px}.gallery img{height:170px}.nav{align-items:flex-start;flex-direction:column;padding:10px 0}nav{gap:10px}}@media(max-width:520px){.gallery img:first-child{height:260px}.facts{grid-template-columns:repeat(3,1fr)}.brand img{width:145px;height:95px}}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header><div class="container nav"><a class="brand" href="index.html"><img src="./pps18logo.png?v=3" alt="PPS18 Property Group logo"></a><nav><a href="index.html">HOME</a><a href="listings.html">PROPERTY LISTINGS</a><a href="villas.html">VILLAS</a><a href="apartments.html">APARTMENTS</a><a href="hotels.html">HOTELS</a><a href="restaurants.html">RESTAURANTS</a><a href="retail.html">RETAIL</a><a href="offices.html">OFFICES</a><a class="contact-link" href="index.html#contact">CONTACT</a></nav></div></header>
+<main class="container content">
+<a class="back" href="listings.html">← BACK TO PROPERTY LISTINGS</a>
+<div id="propertyContent"><div class="notice"><h2>Loading property details…</h2><p>Please wait while we retrieve this property.</p></div></div>
+</main>
+<footer><div class="container">© 2026 PPS18 Property Group · Thailand · <a href="mailto:info@pps18propertygroup.com">info@pps18propertygroup.com</a></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(async function(){
+ const root=document.getElementById('propertyContent');
+ const client=window.supabase.createClient('https://mlyyfxywfrrsyzehveuq.supabase.co','sb_publishable_pBCFrxcZMYEswJxTpl885g_a4yvzaAr');
+ const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+ const id=new URLSearchParams(window.location.search).get('id');
+ if(!id){root.innerHTML='<div class="notice"><h2>Property not found</h2><p>Please return to the property listings and choose a property.</p><a class="btn" href="listings.html">VIEW PROPERTY LISTINGS</a></div>';return;}
+ try{
+  const {data:p,error}=await client.from('properties').select('id,title,category,listing_type,location,area,price,price_currency,bedrooms,bathrooms,size_sqm,description,features,cover_image,image_urls,status').eq('id',id).eq('status','published').maybeSingle();
+  if(error) throw error;
+  if(!p){root.innerHTML='<div class="notice"><h2>Property not available</h2><p>This property may have been removed or is no longer being advertised.</p><a class="btn" href="listings.html">VIEW OTHER PROPERTIES</a></div>';return;}
+  const photos=[...new Set([p.cover_image,...(p.image_urls||[])].filter(Boolean))];
+  const gallery=photos.length?'<div class="gallery">'+photos.map((url,i)=>'<img loading="'+(i===0?'eager':'lazy')+'" src="'+esc(url)+'" alt="'+esc(p.title)+' photograph '+(i+1)+'">').join('')+'</div>':'<div class="no-image">Photographs coming soon</div>';
+  const price=p.price==null?'Price on request':new Intl.NumberFormat('en-US',{style:'currency',currency:p.price_currency||'THB',maximumFractionDigits:0}).format(Number(p.price));
+  const fact=(value,label)=>value==null?'':'<div class="fact"><strong>'+esc(value)+'</strong><span>'+label+'</span></div>';
+  const features=(p.features||[]).length?'<section class="panel"><h2>Property features</h2><ul class="features">'+p.features.map(f=>'<li>'+esc(f)+'</li>').join('')+'</ul></section>':'';
+  const subject=encodeURIComponent('Property enquiry: '+p.title+' ('+p.id+')');
+  root.innerHTML='<div class="layout"><div>'+gallery+'<section class="panel"><h2>Description</h2><div class="description">'+esc(p.description)+'</div></section>'+features+'</div><aside class="details"><div class="eyebrow">'+esc(p.category)+' · '+esc(p.listing_type)+'</div><h1>'+esc(p.title)+'</h1><div class="meta">'+esc([p.area,p.location].filter(Boolean).join(', '))+'</div><div class="price">'+esc(price)+'</div><div class="facts">'+fact(p.bedrooms,'Bedrooms')+fact(p.bathrooms,'Bathrooms')+fact(p.size_sqm!=null?p.size_sqm+' m²':null,'Floor area')+'</div><section class="panel"><h2>Interested in this property?</h2><p class="meta">Contact PPS18 Property Group for further information or to arrange a viewing.</p><a class="btn" href="mailto:info@pps18propertygroup.com?subject='+subject+'">ENQUIRE ABOUT THIS PROPERTY</a></section></aside></div>';
+ }catch(err){root.innerHTML='<div class="notice"><h2>Unable to load this property</h2><p>Please try again shortly or contact PPS18 Property Group.</p><a class="btn" href="mailto:info@pps18propertygroup.com">CONTACT PPS18</a></div>';console.error(err);}
+})();
+</script>
+</body>
+</html>
