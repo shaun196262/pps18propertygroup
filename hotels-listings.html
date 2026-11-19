@@ -7,10 +7,12 @@ header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #
 
 /* Mobile menu visibility: reveal the full-width bar when opened */
 @media(max-width:760px){.navbar:has(nav.open){display:block!important}}
+
+@media(max-width:760px){.navbar.mobile-open{display:block!important}}
 </style></head><body><div class="topline"></div><header>
 <div class="container nav">
 <a href="index.html" class="brand brand-logo" aria-label="PPS18 Property Group home"><img class="pps18-header-logo" src="./pps18logo.png?v=10" alt="PPS18 Property Group logo"></a>
-<button class="menu" type="button" aria-label="Open menu" aria-expanded="false" onclick="const menu=document.querySelector('.navbar nav');const open=menu.classList.toggle('open');this.setAttribute('aria-expanded',open?'true':'false')">☰</button>
+<button class="menu" type="button" aria-label="Open menu" aria-expanded="false" onclick="const bar=this.closest('header').querySelector('.navbar');const nav=bar.querySelector('nav');const open=bar.classList.toggle('mobile-open');nav.classList.toggle('open',open);this.setAttribute('aria-expanded',open?'true':'false');this.setAttribute('aria-label',open?'Close menu':'Open menu')">☰</button>
 </div>
 <div class="navbar"><div class="container"><nav>
 <a href="index.html">HOME</a><a href="listings.html">PROPERTY LISTINGS</a><a href="index.html#owners">LIST WITH US</a><a href="villas.html">VILLAS</a><a href="apartments.html">APARTMENTS</a><a href="hotels.html">HOTELS</a><a href="restaurants.html">RESTAURANTS</a><a href="retail.html">RETAIL</a><a href="offices.html">OFFICES</a><a href="index.html#about">ABOUT</a><a href="index.html#services">SERVICES</a><a href="index.html#contact" class="contact-link">CONTACT</a>
