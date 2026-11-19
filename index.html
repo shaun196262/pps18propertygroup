@@ -289,6 +289,7 @@ footer a:hover{color:var(--gold)}
 
 /* Reliable mobile menu toggle: controlled directly on the navigation bar */
 @media(max-width:760px){.navbar.mobile-open{display:block!important}}
+.owner-form-fields{margin:20px 0;padding:20px;background:#f8f6f1;border:1px solid #e8e2d7;border-left:3px solid #d3ad62}.owner-form-fields[hidden]{display:none!important}.owner-form-heading{display:flex;flex-direction:column;gap:4px;margin-bottom:15px}.owner-form-heading strong{font:600 19px 'Playfair Display',serif;color:#07172e}.owner-form-heading span{font-size:12px;color:#737d89}.owner-form-fields .field{margin-bottom:13px}.owner-form-fields .field:last-child{margin-bottom:0}
 </style>
 </head>
 
@@ -493,6 +494,14 @@ footer a:hover{color:var(--gold)}
 </select>
 </div>
 </div>
+<div class="owner-form-fields" id="ownerFormFields" hidden>
+<div class="owner-form-heading"><strong>Property owner details</strong><span>Complete these details so we can understand your property and the service you need.</span></div>
+<div class="form-row">
+<div class="field"><label for="propertyLocation">Property location *</label><input id="propertyLocation" name="propertyLocation" placeholder="Area, town or province"></div>
+<div class="field"><label for="ownerPropertyType">Property type *</label><select id="ownerPropertyType" name="ownerPropertyType"><option value="">Choose property type</option><option>Villa or house</option><option>Apartment or condominium</option><option>Hotel or resort</option><option>Restaurant, café or bar</option><option>Retail or commercial unit</option><option>Office</option><option>Land</option><option>Other</option></select></div>
+</div>
+<div class="field"><label for="ownerService">What would you like help with? *</label><select id="ownerService" name="ownerService"><option value="">Choose a service</option><option>Property valuation</option><option>Professional photography</option><option>Marketing and finding a buyer</option><option>Marketing and finding a tenant</option><option>Full property management</option><option>Several services / tailored package</option><option>Not sure yet — please discuss</option></select></div>
+</div>
 <div class="field"><label for="message">Your message *</label><textarea id="message" name="message" required placeholder="Tell us about your property requirements..."></textarea></div>
 <button class="btn" type="submit">SEND ENQUIRY →</button>
 <p class="form-note" id="formNote">Submitting opens your email app with your enquiry addressed to PPS18.</p>
@@ -524,12 +533,30 @@ document.querySelector('.menu').setAttribute('aria-expanded','false');
 });
 });
 
-// Send the completed enquiry through the visitor's own email application.
-document.getElementById('enquiryForm').addEventListener('submit',function(e){
+// Show a dedicated property-owner section only for owner enquiries.
+const enquiryForm=document.getElementById('enquiryForm');
+const interestSelect=document.getElementById('interest');
+const ownerFields=document.getElementById('ownerFormFields');
+const ownerFieldIds=['propertyLocation','ownerPropertyType','ownerService'];
+function updateOwnerFields(){
+const isOwner=(interestSelect.value||'').startsWith('Property owner');
+ownerFields.hidden=!isOwner;
+ownerFieldIds.forEach(id=>{document.getElementById(id).required=isOwner;});
+}
+interestSelect.addEventListener('change',updateOwnerFields);
+updateOwnerFields();
+// Owner call-to-action takes visitors to the enquiry form and selects the owner route.
+document.querySelectorAll('.owner-bottom a[href="#contact"]').forEach(link=>link.addEventListener('click',()=>{
+interestSelect.value='Property owner — discuss my options';updateOwnerFields();
+}));
+enquiryForm.addEventListener('submit',function(e){
 e.preventDefault();
+if(!this.reportValidity())return;
 const data=new FormData(this);
-const subject=encodeURIComponent('PPS18 Property Enquiry - '+data.get('interest'));
-const body=encodeURIComponent('Name: '+data.get('name')+'\nEmail: '+data.get('email')+'\nTelephone / WhatsApp: '+(data.get('phone')||'Not provided')+'\nProperty interest: '+data.get('interest')+'\n\nMessage:\n'+data.get('message'));
+const owner=(data.get('interest')||'').startsWith('Property owner');
+const ownerDetails=owner?'\n\nPROPERTY OWNER DETAILS:\nProperty location: '+data.get('propertyLocation')+'\nProperty type: '+data.get('ownerPropertyType')+'\nService requested: '+data.get('ownerService'):'';
+const subject=encodeURIComponent((owner?'PPS18 PROPERTY OWNER ENQUIRY - ':'PPS18 Property Enquiry - ')+data.get('interest'));
+const body=encodeURIComponent('Name: '+data.get('name')+'\nEmail: '+data.get('email')+'\nTelephone / WhatsApp: '+(data.get('phone')||'Not provided')+'\nEnquiry type: '+data.get('interest')+ownerDetails+'\n\nMessage:\n'+data.get('message'));
 window.location.href='mailto:info@pps18propertygroup.com?subject='+subject+'&body='+body;
 });
 </script>
