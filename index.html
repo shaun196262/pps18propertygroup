@@ -37,6 +37,18 @@ h2{font-size:clamp(30px,4vw,43px);color:var(--navy)}
 .btn:hover{background:var(--lightgold);transform:translateY(-2px)}
 .btn-outline{background:transparent;color:white;border-color:white}
 .btn-outline:hover{color:var(--navy)}
+/* PPS18 HEADER ALIGNMENT — FINAL OVERRIDE */
+@media(min-width:761px){
+  .nav{min-height:142px!important;display:flex!important;justify-content:center!important;align-items:center!important}
+  .nav .brand{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;margin:0!important}
+  .nav .brand img{width:390px!important;height:132px!important;max-width:72vw!important;object-fit:contain!important}
+}
+@media(max-width:760px){
+  .nav{min-height:112px!important;display:flex!important;justify-content:center!important;align-items:center!important}
+  .nav .brand{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;margin:0!important}
+  .nav .brand img{width:280px!important;height:104px!important;max-width:calc(100vw - 110px)!important;object-fit:contain!important}
+  .nav .menu{position:absolute!important;right:0!important;top:50%!important;transform:translateY(-50%)!important;z-index:2}
+}
 /* PREMIUM NAVIGATION */
 header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #07172e12}
 .topline{height:4px;background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 48%,var(--navy) 100%)}
@@ -266,7 +278,7 @@ footer a:hover{color:var(--gold)}
 <header>
 <div class="container nav">
 <a href="index.html" class="brand" aria-label="PPS18 Property Group home">
-<img src="./pps18logo.png?v=3" alt="PPS18 Property Group logo">
+<img src="./pps18logo.png?v=4" alt="PPS18 Property Group logo">
 </a>
 <button class="menu" aria-label="Open menu" aria-expanded="false" onclick="const menu=document.querySelector('.navbar nav');const open=menu.classList.toggle('open');this.setAttribute('aria-expanded',open?'true':'false')">☰</button>
 </div>
