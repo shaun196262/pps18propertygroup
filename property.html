@@ -62,7 +62,7 @@ header{box-shadow:0 8px 24px #07172e12}
 @media(max-width:460px){.gallery{gap:7px}.gallery img:first-child{height:250px}.gallery img{height:120px}.facts{grid-template-columns:repeat(3,minmax(0,1fr))}.fact{padding:10px 8px}.fact strong{font-size:16px}.fact span{font-size:10px}}
 
 .details .enquiry-note{font-size:11px;color:var(--muted);text-align:center;margin:14px 0 0;line-height:1.7}.details .panel>p.meta{line-height:1.7}
-</style>
+.notice .eyebrow{display:block;margin-bottom:12px}.notice .back-link{display:inline-block;margin:14px 0 0 16px;color:var(--navy);font-size:11px;font-weight:700;letter-spacing:.5px}@media(max-width:760px){.notice{padding:28px 20px!important}.notice h2{font-size:28px}.notice .back-link{display:block;margin:16px 0 0}}</style>
 </head>
 <body>
 <div class="topline"></div>
@@ -79,7 +79,7 @@ header{box-shadow:0 8px 24px #07172e12}
  const client=window.supabase.createClient('https://mlyyfxywfrrsyzehveuq.supabase.co','sb_publishable_pBCFrxcZMYEswJxTpl885g_a4yvzaAr');
  const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
  const id=new URLSearchParams(window.location.search).get('id');
- if(!id){root.innerHTML='<div class="notice"><h2>Property not found</h2><p>Please return to the property listings and choose a property.</p><a class="btn" href="listings.html">VIEW PROPERTY LISTINGS</a></div>';return;}
+ if(!id){root.innerHTML='<div class="notice"><span class="eyebrow">PPS18 PROPERTY COLLECTION</span><h2>Explore Available Properties</h2><p>Choose a property from our current listings to view its photographs, price, features and full details. If you cannot find what you are looking for, our team will be happy to help.</p><a class="btn" href="listings.html">BROWSE PROPERTY LISTINGS</a><a class="back-link" href="index.html">RETURN TO HOMEPAGE</a></div>';return;}
  try{
   const {data:p,error}=await client.from('properties').select('id,title,category,listing_type,location,area,price,price_currency,bedrooms,bathrooms,size_sqm,description,features,cover_image,image_urls,status').eq('id',id).eq('status','published').maybeSingle();
   if(error) throw error;
