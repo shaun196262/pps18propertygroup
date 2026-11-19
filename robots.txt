@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+Sitemap: https://shaun196262.github.io/pps18propertygroup/sitemap.xml
