@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+<title id="title">PPS18 Property Group</title><desc id="desc">Gold PPS18 lettering with a navy and gold roof, silver crescent moon, stars, green palm tree, tropical flower and house key, on a clean ivory background.</desc>
+<defs>
+ <linearGradient id="gold" x1="0" y1="0" x2="0.2" y2="1"><stop stop-color="#f9e4a4"/><stop offset=".32" stop-color="#d9ad55"/><stop offset=".68" stop-color="#b47b27"/><stop offset="1" stop-color="#f1d58b"/></linearGradient>
+ <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#aeb8c3"/></linearGradient>
+ <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#91b96b"/><stop offset="1" stop-color="#24633d"/></linearGradient>
+ <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur in="SourceAlpha" stdDeviation="2"/><feOffset dy="2"/><feComponentTransfer><feFuncA type="linear" slope=".18"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1200" height="390" rx="8" fill="#fff"/>
+<!-- crescent and stars -->
+<path d="M275 28a57 57 0 1 0 53 88A48 48 0 0 1 275 28Z" fill="url(#silver)" stroke="#9ca8b3" stroke-width="2"/>
+<g fill="url(#gold)"><path d="M380 24l7 19 19 7-19 7-7 19-7-19-19-7 19-7z"/><path d="M430 65l5 13 13 5-13 5-5 13-5-13-13-5 13-5z"/><circle cx="342" cy="76" r="4"/></g>
+<!-- roof -->
+<path d="M460 166L626 45l167 121" fill="none" stroke="url(#gold)" stroke-width="15" stroke-linejoin="round"/>
+<path d="M477 164L626 66l150 98" fill="none" stroke="#142b49" stroke-width="8" stroke-linejoin="round"/>
+<rect x="608" y="111" width="35" height="35" rx="2" fill="#173557"/><path d="M625 111v35m-17-17h35" stroke="#fff" stroke-width="3"/>
+<!-- palm -->
+<path d="M1020 160Q1037 104 1033 48" fill="none" stroke="#80552c" stroke-width="13" stroke-linecap="round"/>
+<g fill="url(#green)" stroke="#477344" stroke-width="2"><path d="M1032 52Q968 4 914 22Q963 55 1032 57Z"/><path d="M1034 51Q1000 -1 974 2Q987 34 1034 57Z"/><path d="M1034 52Q1075 -2 1128 11Q1091 47 1034 58Z"/><path d="M1035 55Q1101 43 1152 73Q1090 82 1035 61Z"/><path d="M1031 55Q1010 87 963 96Q980 57 1031 50Z"/></g>
+<!-- main wordmark -->
+<text x="585" y="235" text-anchor="middle" font-family="Georgia,serif" font-size="170" font-weight="bold" letter-spacing="-6" fill="url(#gold)" stroke="#9b6a20" stroke-width="1.5" paint-order="stroke" filter="url(#shadow)">PPS18</text>
+<!-- flower -->
+<g transform="translate(190 217)" fill="#fff7e7" stroke="#d5ad5d" stroke-width="2"><ellipse cy="-29" rx="17" ry="31"/><ellipse cy="29" rx="17" ry="31"/><ellipse cx="-29" rx="31" ry="17"/><ellipse cx="29" rx="31" ry="17"/><ellipse cx="-21" cy="-21" rx="16" ry="27" transform="rotate(-45 -21 -21)"/></g><circle cx="190" cy="217" r="9" fill="#e5b94f"/>
+<!-- subtitle -->
+<path d="M292 263H908" stroke="url(#gold)" stroke-width="3"/>
+<text x="600" y="310" text-anchor="middle" font-family="Georgia,serif" font-size="53" font-weight="bold" letter-spacing="4" fill="#142b49">PROPERTY GROUP</text>
+<path d="M350 326Q600 350 850 326" fill="none" stroke="#1d466c" stroke-width="5"/>
+<!-- key charm -->
+<g transform="translate(1080 190)" fill="none" stroke="url(#gold)" stroke-width="9"><path d="M0 -32v88m0 0h24v-17h-24m0 17h-18v-15"/><circle cx="0" cy="-49" r="25"/></g>
+<text x="600" y="375" text-anchor="middle" font-family="cursive" font-style="italic" font-size="35" fill="#a8752b">Your Property. Our Prestige.</text>
+</svg>
