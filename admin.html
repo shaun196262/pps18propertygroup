@@ -76,7 +76,7 @@
     return Number.isNaN(d.getTime())?'—':d.toLocaleDateString();
   }
   async function loadDashboard(user){
-    const {data:profile,error:profileError}=await client.from('staff_profiles').select('*').eq('id',user.id).maybeSingle();
+    const {data:profile,error:profileError}=await client.from('staff_profiles').select('*').eq('user_id',user.id).maybeSingle();
     if(profileError) throw new Error('Could not verify your administrator profile: '+profileError.message);
     if(!profile || profile.role!=='admin') {
       await client.auth.signOut();
