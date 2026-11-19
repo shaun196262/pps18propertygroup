@@ -9,11 +9,63 @@
 <style>
 :root{--navy:#07172e;--gold:#d3ad62;--lightgold:#f1d99d;--cream:#f8f6f1;--text:#283343;--muted:#737d89;--line:#e9e5dc}
 *{box-sizing:border-box}body{margin:0;font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.65}a{text-decoration:none;color:inherit}.container{width:min(1120px,92%);margin:auto}.topline{height:4px;background:linear-gradient(90deg,var(--navy),var(--gold),var(--navy))}header{position:sticky;top:0;background:#fff;z-index:5;box-shadow:0 3px 15px #00000012}.nav{min-height:120px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand img{width:180px;height:115px;object-fit:contain;display:block}nav{display:flex;gap:15px;align-items:center;flex-wrap:wrap}nav a{font-size:10px;font-weight:700;color:var(--navy)}.contact-link{background:var(--navy);color:white;padding:10px 13px}.content{padding:42px 0 70px}.back{display:inline-block;color:#98712d;font-weight:700;font-size:12px;margin-bottom:22px}.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:34px;align-items:start}.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gallery img{width:100%;height:230px;object-fit:cover;background:var(--cream);cursor:pointer}.gallery img:first-child{grid-column:1/-1;height:440px}.no-image{background:var(--cream);height:300px;display:grid;place-items:center;color:var(--muted)}.details h1{font:600 clamp(30px,4vw,44px)/1.15 'Playfair Display',serif;color:var(--navy);margin:10px 0}.eyebrow{font-size:11px;letter-spacing:2px;color:#98712d;font-weight:700;text-transform:uppercase}.meta{color:var(--muted);font-size:14px}.price{font-size:25px;font-weight:700;color:#98712d;margin:18px 0}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.fact{background:var(--cream);padding:13px;border:1px solid var(--line)}.fact strong{display:block;color:var(--navy);font-size:18px}.fact span{font-size:11px;color:var(--muted)}.panel{border:1px solid var(--line);padding:22px;margin-top:20px}.panel h2{font:600 24px 'Playfair Display',serif;color:var(--navy);margin:0 0 12px}.description{white-space:pre-line;color:#4c5663}.features{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}.features li{background:var(--cream);padding:7px 11px;font-size:12px}.btn{display:inline-block;background:var(--gold);color:var(--navy);padding:13px 19px;font-weight:700;font-size:12px;margin-top:12px}.notice{text-align:center;padding:55px 20px;background:var(--cream);border:1px solid var(--line)}footer{background:#041124;color:#c5ced9;padding:28px 0;text-align:center;font-size:12px}footer a{color:var(--lightgold)}@media(max-width:800px){.layout{grid-template-columns:1fr}.gallery img:first-child{height:330px}.gallery img{height:170px}.nav{align-items:flex-start;flex-direction:column;padding:10px 0}nav{gap:10px}}@media(max-width:520px){.gallery img:first-child{height:260px}.facts{grid-template-columns:repeat(3,1fr)}.brand img{width:145px;height:95px}}
+
+/* PPS18 premium property detail layout */
+header{box-shadow:0 8px 24px #07172e12}
+.nav{min-height:132px;justify-content:center;position:relative}
+.brand{display:flex;align-items:center;justify-content:center}
+.brand img{width:340px;height:126px;object-fit:contain}
+.menu{display:none;border:1px solid #d9c18e;background:#fff;color:var(--navy);width:44px;height:42px;font-size:25px;cursor:pointer}
+.navbar{background:var(--navy);border-top:1px solid #ffffff14}
+.navbar nav{min-height:54px;display:flex;gap:clamp(8px,1.2vw,16px);align-items:center;justify-content:space-between;flex-wrap:nowrap}
+.navbar nav a{position:relative;display:inline-flex;align-items:center;min-height:54px;font-size:9px;font-weight:700;letter-spacing:.45px;color:#f7f4ed;white-space:nowrap}
+.navbar nav a:after{content:"";position:absolute;left:0;right:0;bottom:10px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.navbar nav a:hover:after{transform:scaleX(1)}
+.navbar nav .contact-link{background:var(--gold);color:var(--navy);padding:0 14px;min-height:34px}
+.navbar nav .contact-link:after{display:none}
+.content{padding:34px 0 76px}
+.back{display:inline-flex;align-items:center;gap:8px;padding:10px 0;margin-bottom:22px;letter-spacing:.7px}
+.layout{grid-template-columns:minmax(0,1.55fr) minmax(300px,.75fr);gap:38px}
+.gallery{gap:12px}
+.gallery img{height:220px;transition:filter .2s}
+.gallery img:hover{filter:brightness(.94)}
+.gallery img:first-child{height:470px}
+.details{position:sticky;top:180px}
+.details h1{font-size:clamp(32px,3.4vw,46px);letter-spacing:-.5px}
+.price{font-size:29px}
+.facts{gap:9px}
+.fact{padding:15px 12px}
+.panel{padding:25px;margin-top:24px}
+.panel h2{font-size:25px}
+.details .panel{background:#fff;box-shadow:0 12px 34px #07172e0d;border-top:3px solid var(--gold)}
+.details .btn{display:block;text-align:center;padding:15px 16px}
+.details .whatsapp{display:block;text-align:center;border:1px solid #d9c18e;color:var(--navy);padding:13px 16px;margin-top:10px;font-size:12px;font-weight:700}
+.no-image{min-height:360px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.details{position:static}.gallery img:first-child{height:390px}.gallery img{height:190px}}
+@media(max-width:760px){
+ .nav{min-height:110px;justify-content:center}
+ .brand img{width:250px;height:94px}
+ .menu{display:block;position:absolute;right:0;top:50%;transform:translateY(-50%)}
+ .navbar nav{display:none;min-height:0;padding:10px 0 16px;flex-direction:column;align-items:stretch;gap:0}
+ .navbar nav.open{display:flex}
+ .navbar nav a{min-height:0;padding:13px 8px;border-bottom:1px solid #ffffff18;font-size:11px;letter-spacing:1px}
+ .navbar nav a:after{display:none}
+ .navbar nav .contact-link{text-align:center;justify-content:center;margin-top:12px;padding:12px}
+ .content{padding:25px 0 52px}
+ .gallery img:first-child{height:300px}
+ .gallery img{height:155px}
+ .layout{gap:18px}
+ .details h1{font-size:34px}
+ .price{font-size:26px}
+ .panel{padding:20px;margin-top:18px}
+}
+@media(max-width:460px){.gallery{gap:7px}.gallery img:first-child{height:250px}.gallery img{height:120px}.facts{grid-template-columns:repeat(3,minmax(0,1fr))}.fact{padding:10px 8px}.fact strong{font-size:16px}.fact span{font-size:10px}}
+
 </style>
 </head>
 <body>
 <div class="topline"></div>
-<header><div class="container nav"><a class="brand" href="index.html"><img src="./pps18logo.png?v=3" alt="PPS18 Property Group logo"></a><nav><a href="index.html">HOME</a><a href="listings.html">PROPERTY LISTINGS</a><a href="villas.html">VILLAS</a><a href="apartments.html">APARTMENTS</a><a href="hotels.html">HOTELS</a><a href="restaurants.html">RESTAURANTS</a><a href="retail.html">RETAIL</a><a href="offices.html">OFFICES</a><a class="contact-link" href="index.html#contact">CONTACT</a></nav></div></header>
+<header><div class="container nav"><a class="brand" href="index.html" aria-label="PPS18 Property Group home"><img src="./pps18logo.png?v=3" alt="PPS18 Property Group logo"></a><button class="menu" type="button" aria-label="Open menu" aria-expanded="false" onclick="const n=document.querySelector('.navbar nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false')">☰</button></div><div class="navbar"><div class="container"><nav><a href="index.html">HOME</a><a href="listings.html">PROPERTY LISTINGS</a><a href="index.html#owners">LIST WITH US</a><a href="villas.html">VILLAS</a><a href="apartments.html">APARTMENTS</a><a href="hotels.html">HOTELS</a><a href="restaurants.html">RESTAURANTS</a><a href="retail.html">RETAIL</a><a href="offices.html">OFFICES</a><a href="index.html#about">ABOUT</a><a href="index.html#services">SERVICES</a><a class="contact-link" href="index.html#contact">CONTACT</a></nav></div></div></header>
 <main class="container content">
 <a class="back" href="listings.html">← BACK TO PROPERTY LISTINGS</a>
 <div id="propertyContent"><div class="notice"><h2>Loading property details…</h2><p>Please wait while we retrieve this property.</p></div></div>
