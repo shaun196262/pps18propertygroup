@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07172e">
-<meta name="description" content="PPS18 Property Group Thailand. Residential, hospitality and commercial property sales, leases and subleases.">
-<title>PPS18 Property Group | Thailand</title>
+<meta name="description" content="PPS18 Property Group is based in Phuket, supporting residential, hospitality and commercial property across Phuket and Thailand.">
+<title>PPS18 Property Group | Phuket Property & Thailand</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -51,7 +51,7 @@ nav a:hover{color:var(--gold)}
 nav .contact-link{background:var(--navy);color:white;padding:12px 16px}
 .menu{display:none;border:0;background:none;font-size:28px;color:var(--navy);cursor:pointer}
 /* HERO */
-.hero{min-height:590px;display:flex;align-items:center;color:white;background:linear-gradient(90deg,#06162feF 0%,#06162f91 50%,#06162f10 100%),url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=85') center/cover}
+.hero{min-height:590px;display:flex;align-items:center;color:white;background:linear-gradient(90deg,#06162feF 0%,#06162f91 50%,#06162f10 100%),url('https://assets.minorhotels.com/image/upload/q_auto%2Cf_auto/media/minor/nh/images/nh-boat-lagoon-phuket/04_offers_ok4/island-escape/nh_boat_lagoon_phuket_phi_phi_island_escape_1960x600.jpg') center/cover}
 .hero-content{padding:85px 0;max-width:670px}
 .hero h1{font-size:clamp(46px,6.5vw,75px);margin:20px 0}
 .hero h1 span{color:var(--lightgold)}
@@ -185,6 +185,29 @@ footer a:hover{color:var(--gold)}
  .service-grid{grid-template-columns:1fr}
  .hero-buttons .btn{width:100%;text-align:center}
 }
+
+/* PHUKET HOMEPAGE REDESIGN */
+.phuket-hero{background-image:linear-gradient(90deg,#06162ff2 0%,#06162f9c 52%,#06162f18 100%),url('https://assets.minorhotels.com/image/upload/q_auto%2Cf_auto/media/minor/nh/images/nh-boat-lagoon-phuket/04_offers_ok4/island-escape/nh_boat_lagoon_phuket_phi_phi_island_escape_1960x600.jpg');background-position:center;background-size:cover}
+.area-section{background:#f8f6f1}
+.area-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.area-card{background:#fff;border:1px solid #e8e2d7;overflow:hidden;box-shadow:0 7px 24px #07172e0a}
+.area-card img{height:220px;object-fit:cover}
+.area-copy{padding:22px}
+.area-copy span,.island-card span{font-size:10px;letter-spacing:2px;font-weight:700;color:#a27b36}
+.area-copy h3,.island-card h3{font:600 24px 'Playfair Display',serif;color:var(--navy);margin:6px 0 9px}
+.area-copy p,.island-card p{font-size:13px;color:var(--muted)}
+.islands-section{background:#fff}
+.island-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:22px}
+.island-card{position:relative;min-height:260px;overflow:hidden;background:var(--navy);color:#fff}
+.island-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;transition:.35s}
+.island-card:hover img{transform:scale(1.04);opacity:.85}
+.island-card:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#06162feF)}
+.island-card>div{position:absolute;z-index:1;left:24px;right:24px;bottom:22px}
+.island-card h3{color:#fff}
+.island-card p{color:#edf0f4;max-width:520px}
+.island-large{grid-row:span 2;min-height:542px}
+@media(max-width:850px){.area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.island-grid{grid-template-columns:1fr 1fr}.island-large{grid-row:auto;min-height:300px}}
+@media(max-width:560px){.area-grid,.island-grid{grid-template-columns:1fr}.area-card img{height:210px}.island-large{min-height:280px}.island-card{min-height:250px}}
 </style>
 </head>
 
@@ -206,148 +229,101 @@ footer a:hover{color:var(--gold)}
 <a href="restaurants.html">RESTAURANTS</a>
 <a href="retail.html">RETAIL</a>
 <a href="offices.html">OFFICES</a>
-<a href="index.html#buy-sell">BUY & SELL</a>
-<a href="index.html#subleasing">LEASE</a>
-<a href="index.html#services">SERVICES</a>
-<a href="index.html#about">ABOUT</a>
-<a href="index.html#contact" class="contact-link">CONTACT US</a>
+<a href="#about">ABOUT</a>
+<a href="#services">SERVICES</a>
+<a href="#contact" class="contact-link">CONTACT</a>
 </nav>
 </div>
 </header>
 
 <main>
-<section class="hero" id="home">
+<section class="hero phuket-hero" id="home">
 <div class="container hero-content">
-<div class="eyebrow">THAILAND · REAL ESTATE · PROPERTY MANAGEMENT</div>
-<h1>Your Property.<br><span>Our Prestige.</span></h1>
-<p>Discover residential and commercial property opportunities across Thailand. From luxury villas and apartments to hotels, restaurants, retail units and office spaces, PPS18 Property Group is here to help.</p>
+<div class="eyebrow">PHUKET · THAILAND · PROPERTY SPECIALISTS</div>
+<h1>Discover Phuket.<br><span>Find Your Place.</span></h1>
+<p>From the energy of Patong to the relaxed coastlines of the south and the beautiful beaches of the west, PPS18 Property Group helps people explore property opportunities across Phuket and beyond.</p>
 <div class="hero-buttons">
-<a class="btn" href="#villas">EXPLORE PROPERTIES →</a>
-<a class="btn btn-outline" href="#contact">MAKE AN ENQUIRY</a>
+<a class="btn" href="listings.html">EXPLORE PROPERTY LISTINGS →</a>
+<a class="btn btn-outline" href="#contact">SPEAK TO OUR TEAM</a>
 </div>
-<div class="hero-note">BUY · SELL · LEASE · SUBLEASE</div>
-</div>
-</section>
-
-<section class="category-shortcuts">
-<div class="container">
-<div class="shortcut-heading"><div class="eyebrow">EXPLORE OUR PROPERTY</div><h2>Find the Right Property</h2><p>Choose a property category to explore opportunities across Thailand.</p></div>
-<div class="shortcut-grid">
-<a class="shortcut-card" href="villas.html"><span class="shortcut-icon">⌂</span><span><strong>Villas & Houses</strong><small>Homes and private villas</small></span><b>→</b></a>
-<a class="shortcut-card" href="apartments.html"><span class="shortcut-icon">▤</span><span><strong>Apartments</strong><small>Condominiums and residences</small></span><b>→</b></a>
-<a class="shortcut-card" href="hotels.html"><span class="shortcut-icon">♜</span><span><strong>Hotels</strong><small>Hotels and hospitality properties</small></span><b>→</b></a>
-<a class="shortcut-card" href="restaurants.html"><span class="shortcut-icon">♨</span><span><strong>Restaurants & Bars</strong><small>Restaurants, cafés and bars</small></span><b>→</b></a>
-<a class="shortcut-card" href="retail.html"><span class="shortcut-icon">⌑</span><span><strong>Retail Units</strong><small>Shops and commercial units</small></span><b>→</b></a>
-<a class="shortcut-card" href="offices.html"><span class="shortcut-icon">▥</span><span><strong>Offices</strong><small>Office and business premises</small></span><b>→</b></a>
-</div>
+<div class="hero-note">PHUKET · PHANG NGA · SOUTHERN THAILAND</div>
 </div>
 </section>
 
-<section class="section intro">
+<section class="section intro" id="about-intro">
 <div class="container intro-grid">
 <div class="intro-img">
-<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85" alt="Luxury modern Thailand villa">
-<div class="img-caption"><strong>Property with purpose.</strong>Professional service from enquiry to agreement.</div>
+<img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1100&q=85" alt="Tropical island scenery in southern Thailand">
+<div class="img-caption"><strong>Local knowledge. Wider reach.</strong>Property support across Phuket and surrounding areas.</div>
 </div>
 <div class="intro-copy">
-<div class="eyebrow">WELCOME TO PPS18</div>
-<h2>Property opportunities.<br><span class="gold">Personal service.</span></h2>
-<p>PPS18 Property Group brings together residential, hospitality and commercial property opportunities in Thailand.</p>
-<p>Whether you're looking to buy, sell, lease or sublease, we aim to make your property journey clear and straightforward.</p>
+<div class="eyebrow">WELCOME TO PPS18 PROPERTY GROUP</div>
+<h2>Rooted in Phuket.<br><span class="gold">Connected across Thailand.</span></h2>
+<p>Phuket is our home base, but our property network and enquiries can reach beyond the island into nearby destinations and other parts of Thailand.</p>
+<p>With over 20 years of combined experience in the property trade, our team supports buyers, sellers, landlords, tenants and business operators across residential, hospitality and commercial property.</p>
 <div class="features">
-<div class="feature"><strong>Residential</strong><small>Villas, houses and apartments</small></div>
-<div class="feature"><strong>Hospitality</strong><small>Hotels, resorts and restaurants</small></div>
-<div class="feature"><strong>Commercial</strong><small>Shops, bars and offices</small></div>
-<div class="feature"><strong>Agent agreements</strong><small>Our own in-house agent agreements and fee documents</small></div>
+<div class="feature"><strong>Residential property</strong><small>Villas, houses and apartments</small></div>
+<div class="feature"><strong>Hospitality</strong><small>Hotels, restaurants and bars</small></div>
+<div class="feature"><strong>Commercial</strong><small>Retail units and offices</small></div>
+<div class="feature"><strong>Personal service</strong><small>Clear communication from enquiry onwards</small></div>
 </div>
+<a class="btn" href="#about">MORE ABOUT PPS18 →</a>
 </div>
 </div>
 </section>
 
-<section class="section" id="villas">
+<section class="section area-section" id="phuket-areas">
 <div class="container">
-<div class="heading"><div class="eyebrow">RESIDENTIAL PROPERTY</div><h2>Villas & Houses</h2><p>Beautiful homes, tropical gardens and luxury private-pool villas across Thailand.</p></div>
-<div class="property-grid">
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=85" alt="Luxury villa with swimming pool"><span class="tag">Luxury villas</span></div><div class="card-content"><h3>Luxury Villas</h3><p>Private villas, stunning outdoor spaces and swimming-pool properties.</p><a href="#contact">ENQUIRE ABOUT VILLAS →</a></div></article>
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Modern family house"><span class="tag">Family homes</span></div><div class="card-content"><h3>Houses</h3><p>Residential properties for families, individuals and long-term living.</p><a href="#contact">ENQUIRE ABOUT HOUSES →</a></div></article>
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85" alt="Contemporary tropical home"><span class="tag">Premium homes</span></div><div class="card-content"><h3>Premium Homes</h3><p>Contemporary architecture, beautiful interiors and quality locations.</p><a href="#contact">MAKE AN ENQUIRY →</a></div></article>
+<div class="heading"><div class="eyebrow">GET TO KNOW THE ISLAND</div><h2>Explore Phuket & Its Neighbourhoods</h2><p>Every part of Phuket has its own character. Whether you want lively beachfront surroundings, a quieter coastal setting or convenient town living, we can help you explore the areas and the property opportunities around them.</p></div>
+<div class="area-grid">
+<article class="area-card"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1000&q=85" alt="Patong beach and coastline"><div class="area-copy"><span>WEST COAST</span><h3>Patong</h3><p>A lively beach destination with shopping, dining and entertainment, with quieter coastal areas nearby.</p></div></article>
+<article class="area-card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85" alt="Tropical sandy beach in Phuket"><div class="area-copy"><span>BEACHFRONT LIVING</span><h3>Kata & Karon</h3><p>Beautiful sweeping beaches, resort surroundings and a relaxed coastal atmosphere.</p></div></article>
+<article class="area-card"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=85" alt="Clear tropical sea and green coastline"><div class="area-copy"><span>NORTH-WEST PHUKET</span><h3>Kamala & Bang Tao</h3><p>Coastal communities with a mix of residential areas, resorts and lifestyle destinations.</p></div></article>
+<article class="area-card"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1000&q=85" alt="Quiet tropical bay surrounded by green hills"><div class="area-copy"><span>SOUTH PHUKET</span><h3>Rawai & Nai Harn</h3><p>A more laid-back southern feel, with beaches, local communities and access to nearby islands.</p></div></article>
+<article class="area-card"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1000&q=85" alt="Colourful historic town street in Thailand"><div class="area-copy"><span>CULTURE & CITY LIFE</span><h3>Phuket Town</h3><p>Historic streets, local markets, cafés and everyday island life beyond the beach resorts.</p></div></article>
+<article class="area-card"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=85" alt="Tropical green mountain and coastal landscape"><div class="area-copy"><span>BEYOND PHUKET</span><h3>Phang Nga & Nearby Areas</h3><p>We can also discuss opportunities in neighbouring destinations and further afield across Thailand.</p></div></article>
 </div>
 </div>
 </section>
 
-<section class="section alt" id="apartments">
-<div class="container detail">
-<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1100&q=85" alt="Modern apartment interior">
-<div><div class="eyebrow">RESIDENTIAL RENTALS</div><h2>Apartments & Condominiums</h2><p>Explore modern apartments and condominium opportunities for rent, lease or purchase in Thailand.</p><ul><li>Modern city apartments</li><li>Condominium rentals</li><li>Long-term residential leases</li><li>Property transaction enquiries</li></ul><a class="btn" href="#contact">ENQUIRE ABOUT APARTMENTS</a></div>
-</div>
-</section>
-
-<section class="section" id="hotels">
+<section class="section islands-section" id="islands">
 <div class="container">
-<div class="heading"><div class="eyebrow">HOSPITALITY PROPERTY</div><h2>Hotels</h2><p>Welcoming hotels and comfortable stays, from smaller independent hotels to well-presented properties with guest facilities and swimming pools.</p></div>
-<div class="property-grid">
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85" alt="Luxury tropical hotel swimming pool"><span class="tag">Hotels</span></div><div class="card-content"><h3>Hotels</h3><p>Attractive hotel properties for guests, operators and hospitality businesses.</p><a href="#contact">ENQUIRE ABOUT HOTELS →</a></div></article>
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=85" alt="Luxury resort swimming pool"><span class="tag">Hotels with pools</span></div><div class="card-content"><h3>Hotels with Pools</h3><p>Relaxed hotels with swimming pools and welcoming shared spaces.</p><a href="#contact">ENQUIRE ABOUT RESORTS →</a></div></article>
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=85" alt="Hotel entrance and exterior"><span class="tag">Hospitality investment</span></div><div class="card-content"><h3>Independent Hotels</h3><p>Smaller, friendly hotels and guest accommodation in appealing locations.</p><a href="#contact">DISCUSS AN OPPORTUNITY →</a></div></article>
+<div class="heading"><div class="eyebrow">THE ANDAMAN COAST</div><h2>Island Life, Just Beyond Phuket</h2><p>Phuket is a gateway to some of southern Thailand's best-known island scenery. These destinations help make the region such a special place to live, visit and invest.</p></div>
+<div class="island-grid">
+<article class="island-card island-large"><img src="https://assets.minorhotels.com/image/upload/q_auto%2Cf_auto/media/minor/nh/images/nh-boat-lagoon-phuket/04_offers_ok4/island-escape/nh_boat_lagoon_phuket_phi_phi_island_escape_1960x600.jpg" alt="Green tropical islands in the Andaman Sea"><div><span>ANDAMAN SEA</span><h3>Phi Phi Islands</h3><p>Iconic limestone scenery, clear-water bays and memorable island landscapes.</p></div></article>
+<article class="island-card"><img src="https://images.trvl-media.com/localexpert/3583636/836642ed-ad94-411f-8227-8e09f2bb49e4.jpg?impolicy=resizecrop&rh=565&rw=1005" alt="Turquoise water around Coral Island near Phuket"><div><span>ISLAND ESCAPES</span><h3>Coral & Racha Islands</h3><p>Bright turquoise water and beautiful coastal views a short boat trip from Phuket.</p></div></article>
+<article class="island-card"><img src="https://cdn.getyourguide.com/image/%7Boptions%7D/tour_img/ed337c7f654d054acfc7950be54af04d98e5beb95387855ca4398cc471c6e4f3.jpg" alt="Island coastline in the Andaman Sea"><div><span>COASTAL LANDSCAPES</span><h3>Phang Nga Bay</h3><p>Remarkable green islands, dramatic limestone formations and sheltered waters.</p></div></article>
 </div>
-</div>
-</section>
-
-<section class="section alt" id="restaurants">
-<div class="container">
-<div class="heading"><div class="eyebrow">FOOD & HOSPITALITY</div><h2>Restaurants & Bars</h2><p>Friendly, welcoming restaurants, casual dining spaces and bars for operators looking for the right premises.</p></div>
-<div class="property-grid">
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85" alt="Elegant restaurant interior"><span class="tag">Restaurants</span></div><div class="card-content"><h3>Restaurants</h3><p>Welcoming restaurants and relaxed dining spaces for established and new operators.</p><a href="#contact">ENQUIRE ABOUT RESTAURANTS →</a></div></article>
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=85" alt="Stylish coffee shop"><span class="tag">Cafés</span></div><div class="card-content"><h3>Cafés & Coffee Shops</h3><p>Casual cafés and coffee shops with space for customers to relax and enjoy.</p><a href="#contact">ENQUIRE ABOUT CAFÉS →</a></div></article>
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=85" alt="Modern bar and restaurant"><span class="tag">Bars & hospitality</span></div><div class="card-content"><h3>Bars & Hospitality</h3><p>Approachable bars and social spaces for hospitality businesses.</p><a href="#contact">ENQUIRE ABOUT BARS →</a></div></article>
-</div>
-</div>
-</section>
-
-<section class="section" id="retail">
-<div class="container">
-<div class="heading"><div class="eyebrow">COMMERCIAL PROPERTY</div><h2>Retail Shops & Commercial Units</h2><p>Find suitable commercial premises for retail, shops and business operations.</p></div>
-<div class="property-grid">
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=85" alt="Retail shop interior"><span class="tag">Retail</span></div><div class="card-content"><h3>Retail Shops</h3><p>Shop units and commercial premises for businesses seeking a new location.</p><a href="#contact">ENQUIRE ABOUT SHOPS →</a></div></article>
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=900&q=85" alt="Commercial retail space"><span class="tag">Commercial units</span></div><div class="card-content"><h3>Commercial Units</h3><p>Flexible commercial premises for a variety of business uses.</p><a href="#contact">ENQUIRE ABOUT UNITS →</a></div></article>
-<article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85" alt="Hospitality commercial premises"><span class="tag">Business premises</span></div><div class="card-content"><h3>Business Premises</h3><p>Property opportunities for business owners and commercial operators.</p><a href="#contact">MAKE AN ENQUIRY →</a></div></article>
-</div>
-</div>
-</section>
-
-<section class="section alt" id="offices">
-<div class="container detail">
-<div><div class="eyebrow">BUSINESS PREMISES</div><h2>Offices & Commercial Buildings</h2><p>Professional office spaces and commercial buildings for companies, entrepreneurs and growing businesses.</p><ul><li>Individual office spaces</li><li>Commercial office buildings</li><li>Business premises for lease</li><li>Commercial property transactions</li></ul><a class="btn" href="#contact">ENQUIRE ABOUT OFFICES</a></div>
-<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85" alt="Professional modern office">
 </div>
 </section>
 
 <section class="banner" id="buy-sell">
-<div class="container"><div class="eyebrow">PROPERTY TRANSACTIONS</div><h2>Looking to Buy or Sell?</h2><p>Whether you are a buyer, seller or property owner, speak to PPS18 Property Group about your property requirements in Thailand.</p><a class="btn" href="#contact">DISCUSS YOUR PROPERTY</a></div>
+<div class="container"><div class="eyebrow">PROPERTY TRANSACTIONS</div><h2>Looking to Buy or Sell?</h2><p>Whether you are a buyer, seller or property owner, speak to PPS18 Property Group about your property requirements in Phuket, the surrounding region or elsewhere in Thailand.</p><a class="btn" href="#contact">DISCUSS YOUR PROPERTY</a></div>
 </section>
 
 <section class="section" id="subleasing">
 <div class="container detail">
 <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85" alt="Luxury property interior">
-<div><div class="eyebrow">FLEXIBLE PROPERTY OPPORTUNITIES</div><h2>Lease & Sublease</h2><p>Residential and commercial lease and sublease enquiries across Thailand, subject to the necessary owner permissions and applicable agreements.</p><ul><li>Residential property to lease</li><li>Commercial property to lease</li><li>Hospitality property to lease</li><li>Sublease opportunities</li></ul><a class="btn" href="#contact">DISCUSS LEASE OPTIONS</a></div>
+<div><div class="eyebrow">FLEXIBLE PROPERTY OPPORTUNITIES</div><h2>Lease & Sublease</h2><p>Residential and commercial lease and sublease enquiries across Phuket and Thailand, subject to the necessary owner permissions and applicable agreements.</p><ul><li>Residential property to lease</li><li>Commercial property to lease</li><li>Hospitality property to lease</li><li>Sublease opportunities</li></ul><a class="btn" href="#contact">DISCUSS LEASE OPTIONS</a></div>
 </div>
 </section>
 
 <section class="section services" id="services">
 <div class="container">
-<div class="heading"><div class="eyebrow">WHAT WE DO</div><h2>Our Property Services</h2><p>One property group for residential, commercial and hospitality opportunities.</p></div>
+<div class="heading"><div class="eyebrow">WHAT WE DO</div><h2>Property Services Across Sectors</h2><p>One property group supporting a broad range of residential, commercial and hospitality requirements.</p></div>
 <div class="service-grid">
 <div class="service"><span>⌂</span><h3>Buy & Sell</h3><p>Property purchase and sale enquiries and support.</p></div>
 <div class="service"><span>⌑ ⇄</span><h3>Lease & Sublease</h3><p>Residential, commercial and hospitality properties available to lease, alongside sublease opportunities subject to the necessary owner permissions.</p></div>
-<div class="service"><span>▤</span><h3>In-house Agent Agreements</h3><p>PPS18 prepares its own in-house agent agreements and fee documentation, setting out the agreed terms, responsibilities and commission payable. All agreed agent fees are payable upon signing the relevant agent agreement.</p></div>
+<div class="service"><span>▤</span><h3>Hospitality & Commercial</h3><p>Support with hotels, restaurants, bars, retail premises and offices.</p></div>
+<div class="service"><span>✦</span><h3>In-house Agent Agreements</h3><p>PPS18 prepares its own in-house agent agreements and fee documentation, setting out agreed terms, responsibilities and commission payable.</p></div>
 </div>
 </div>
 </section>
 
 <section class="section" id="about">
 <div class="container about-grid">
-<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=85" alt="Premium Thailand property">
-<div><div class="eyebrow">ABOUT PPS18 PROPERTY GROUP</div><h2>Built Around Property. Focused on People.</h2><p>PPS18 Property Group focuses on residential, commercial and hospitality property opportunities in Thailand.</p><p>Our services cover property sales, purchases, leases and subleases. PPS18 prepares its own in-house agent agreements and fee documentation, setting out agreed terms, responsibilities and commission payable. We do not prepare the underlying legal property sale or lease contracts.</p><div class="promise"><strong class="gold">Your Property. Our Prestige.</strong><br>Professional service, clear communication and attention to detail.</div></div>
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=85" alt="Premium property interior">
+<div><div class="eyebrow">ABOUT PPS18 PROPERTY GROUP</div><h2>Built Around Property. Focused on People.</h2><p>Based in Phuket, PPS18 Property Group works across the island, its surrounding areas and wider Thailand. We focus on residential, commercial and hospitality property opportunities.</p><p>Our services cover property sales, purchases, leases and subleases. PPS18 prepares its own in-house agent agreements and fee documentation, setting out agreed terms, responsibilities and commission payable. We do not prepare the underlying legal property sale or lease contracts.</p><div class="promise"><strong class="gold">Your Property. Our Prestige.</strong><br>Over 20 years of combined experience, professional service and clear communication.</div></div>
 </div>
 </section>
 
@@ -358,10 +334,10 @@ footer a:hover{color:var(--gold)}
 <div class="contact-info">
 <div class="eyebrow">PPS18 PROPERTY GROUP</div>
 <h2>How can we help?</h2>
-<p>Contact us about residential, commercial or hospitality property in Thailand.</p>
+<p>Contact us about residential, commercial or hospitality property in Phuket, surrounding areas or elsewhere in Thailand.</p>
 <div class="contact-line"><strong>Email</strong><a href="mailto:info@pps18propertygroup.com" style="color:white">info@pps18propertygroup.com</a></div>
 <div class="contact-line"><strong>Thailand Telephone / WhatsApp</strong><a href="https://wa.me/66987373938" target="_blank" rel="noopener" style="color:white">+66 98-737-3938 · Message us on WhatsApp</a></div>
-<div class="contact-line"><strong>Location</strong>Thailand</div>
+<div class="contact-line"><strong>Location</strong>Phuket, Thailand</div>
 <div class="contact-line"><strong>Our services</strong>Buy · Sell · Lease · Sublease</div>
 </div>
 <form class="contact-form" id="enquiryForm">
