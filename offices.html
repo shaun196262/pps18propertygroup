@@ -23,6 +23,9 @@ header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #
 
 /* Reliable mobile menu toggle: controlled directly on the navigation bar */
 @media(max-width:760px){.navbar.mobile-open{display:block!important}}
+
+/* Always-available PPS18 WhatsApp contact */
+.pps18-whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:1200;display:inline-flex;align-items:center;gap:9px;padding:13px 18px;background:#176b4a;color:#fff;border:1px solid #0f573b;border-radius:40px;box-shadow:0 8px 24px #07172e35;font-size:12px;font-weight:700;letter-spacing:.3px;transition:transform .2s,background .2s}.pps18-whatsapp-float:hover{background:#0f573b;transform:translateY(-2px)}.pps18-whatsapp-float:focus-visible{outline:3px solid #d3ad62;outline-offset:3px}.pps18-whatsapp-float svg{width:19px;height:19px;fill:currentColor;flex:none}@media(max-width:520px){.pps18-whatsapp-float{right:14px;bottom:14px;padding:12px 15px;font-size:11px}}
 </style></head><body><div class="topline"></div><header>
 <div class="container nav">
 <a href="index.html" class="brand brand-logo" aria-label="PPS18 Property Group home">
@@ -76,4 +79,5 @@ header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #
   }).join('');
  }catch(err){grid.innerHTML='<div class="empty"><h3>Listings are temporarily unavailable</h3><p>Please try again shortly or contact our team directly.</p><a class="btn" href="mailto:info@pps18propertygroup.com">CONTACT PPS18</a></div>';console.error(err);}
 })();
-</script></body></html>
+</script><a class="pps18-whatsapp-float" href="https://wa.me/66987373938?text=Hello%20PPS18%2C%20I%20have%20a%20property%20enquiry." target="_blank" rel="noopener noreferrer" aria-label="Contact PPS18 Property Group on WhatsApp"><span aria-hidden="true">✆</span><span>CHAT WITH PPS18</span></a>
+</body></html>
