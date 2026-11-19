@@ -62,11 +62,53 @@ header{box-shadow:0 8px 24px #07172e12}
 @media(max-width:460px){.gallery{gap:7px}.gallery img:first-child{height:250px}.gallery img{height:120px}.facts{grid-template-columns:repeat(3,minmax(0,1fr))}.fact{padding:10px 8px}.fact strong{font-size:16px}.fact span{font-size:10px}}
 
 .details .enquiry-note{font-size:11px;color:var(--muted);text-align:center;margin:14px 0 0;line-height:1.7}.details .panel>p.meta{line-height:1.7}
-.notice .eyebrow{display:block;margin-bottom:12px}.notice .back-link{display:inline-block;margin:14px 0 0 16px;color:var(--navy);font-size:11px;font-weight:700;letter-spacing:.5px}@media(max-width:760px){.notice{padding:28px 20px!important}.notice h2{font-size:28px}.notice .back-link{display:block;margin:16px 0 0}}</style>
+.notice .eyebrow{display:block;margin-bottom:12px}.notice .back-link{display:inline-block;margin:14px 0 0 16px;color:var(--navy);font-size:11px;font-weight:700;letter-spacing:.5px}@media(max-width:760px){.notice{padding:28px 20px!important}.notice h2{font-size:28px}.notice .back-link{display:block;margin:16px 0 0}}
+/* SHARED PPS18 SITE HEADER — consistent across every page */
+header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #07172e12}
+.topline{height:4px;background:linear-gradient(90deg,#07172e 0%,#d3ad62 48%,#07172e 100%)}
+.nav{min-height:132px;display:flex;align-items:center;justify-content:center;gap:20px;position:relative}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px;margin:0;flex:0 0 auto}
+.brand img,.brand .pps18-header-logo{width:340px;height:126px;object-fit:contain;flex:0 0 auto}
+.menu{display:none;border:1px solid #d9c18e;background:#fff;color:#07172e;width:44px;height:42px;font-size:25px;cursor:pointer}
+.navbar{background:#07172e;border-top:1px solid #ffffff14}
+.navbar nav{min-height:54px;display:flex;gap:clamp(10px,1.45vw,20px);align-items:center;justify-content:space-between}
+.navbar nav a{position:relative;display:inline-flex;align-items:center;min-height:54px;font-size:10px;font-weight:700;letter-spacing:.65px;color:#f7f4ed;white-space:nowrap;transition:color .2s}
+.navbar nav a:after{content:"";position:absolute;left:0;right:0;bottom:10px;height:2px;background:#d3ad62;transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.navbar nav a:hover{color:#f1d99d}.navbar nav a:hover:after{transform:scaleX(1)}
+.navbar nav .contact-link{background:#d3ad62;color:#07172e;padding:0 17px;min-height:34px;letter-spacing:1px}
+.navbar nav .contact-link:after{display:none}.navbar nav .contact-link:hover{background:#f1d99d;color:#07172e}
+@media(max-width:1100px){.nav{min-height:112px}.brand img,.brand .pps18-header-logo{width:290px;height:106px}.navbar nav{gap:10px}.navbar nav a{font-size:9px;letter-spacing:.35px}}
+@media(max-width:760px){.nav{min-height:100px}.brand img,.brand .pps18-header-logo{width:250px;height:94px}.menu{display:block;border-radius:2px;position:absolute;right:0;top:50%;transform:translateY(-50%)}.navbar{display:none}.navbar nav{display:flex;position:static;min-height:0;padding:10px 0 16px;flex-direction:column;align-items:stretch;gap:0;box-shadow:none}.navbar nav.open{display:flex}.navbar nav a{min-height:0;padding:13px 8px;border-bottom:1px solid #ffffff18;font-size:11px;letter-spacing:1px}.navbar nav a:after{display:none}.navbar nav .contact-link{text-align:center;justify-content:center;margin-top:12px;padding:12px}}
+</style>
 </head>
 <body>
 <div class="topline"></div>
-<header><div class="container nav"><a class="brand" href="index.html" aria-label="PPS18 Property Group home"><img src="./pps18logo.png?v=3" alt="PPS18 Property Group logo"></a><button class="menu" type="button" aria-label="Open menu" aria-expanded="false" onclick="const n=document.querySelector('.navbar nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false')">☰</button></div><div class="navbar"><div class="container"><nav><a href="index.html">HOME</a><a href="listings.html">PROPERTY LISTINGS</a><a href="index.html#owners">LIST WITH US</a><a href="villas.html">VILLAS</a><a href="apartments.html">APARTMENTS</a><a href="hotels.html">HOTELS</a><a href="restaurants.html">RESTAURANTS</a><a href="retail.html">RETAIL</a><a href="offices.html">OFFICES</a><a href="index.html#about">ABOUT</a><a href="index.html#services">SERVICES</a><a class="contact-link" href="index.html#contact">CONTACT</a></nav></div></div></header>
+<header>
+<div class="container nav">
+<a href="index.html" class="brand brand-logo" aria-label="PPS18 Property Group home">
+<img class="pps18-header-logo" src="./pps18logo.png?v=10" alt="PPS18 Property Group logo">
+</a>
+<button class="menu" type="button" aria-label="Open menu" aria-expanded="false" onclick="const menu=document.querySelector('.navbar nav');const open=menu.classList.toggle('open');this.setAttribute('aria-expanded',open?'true':'false')">☰</button>
+</div>
+<div class="navbar">
+<div class="container">
+<nav>
+<a href="index.html">HOME</a>
+<a href="listings.html">PROPERTY LISTINGS</a>
+<a href="index.html#owners">LIST WITH US</a>
+<a href="villas.html">VILLAS</a>
+<a href="apartments.html">APARTMENTS</a>
+<a href="hotels.html">HOTELS</a>
+<a href="restaurants.html">RESTAURANTS</a>
+<a href="retail.html">RETAIL</a>
+<a href="offices.html">OFFICES</a>
+<a href="index.html#about">ABOUT</a>
+<a href="index.html#services">SERVICES</a>
+<a href="index.html#contact" class="contact-link">CONTACT</a>
+</nav>
+</div>
+</div>
+</header>
 <main class="container content">
 <a class="back" href="listings.html">← BACK TO PROPERTY LISTINGS</a>
 <div id="propertyContent"><div class="notice"><h2>Loading property details…</h2><p>Please wait while we retrieve this property.</p></div></div>
