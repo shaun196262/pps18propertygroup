@@ -1,1 +1,472 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07172e">
+<meta name="description" content="PPS18 Property Group – premium residential and commercial property in Thailand. Buy, sell, lease and sublease with in-house contract preparation.">
+<title>PPS18 Property Group | Thailand Real Estate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:#07172e;
+  --navy2:#102744;
+  --gold:#c9a45b;
+  --goldlight:#e8cb8e;
+  --cream:#f8f6f1;
+  --white:#fff;
+  --text:#293342;
+  --muted:#727b87;
+  --border:#e9e5dc;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:white;line-height:1.65}
+a{text-decoration:none;color:inherit}
+img{width:100%;display:block;object-fit:cover}
+button{font:inherit}
+.container{width:min(1160px,91%);margin:auto}
+.gold{color:var(--gold)}
+.eyebrow{color:var(--gold);font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;line-height:1.2}
+h2{font-size:clamp(30px,4vw,44px);color:var(--navy)}
+.section{padding:88px 0}
+.section-head{text-align:center;max-width:690px;margin:0 auto 43px}
+.section-head p{color:var(--muted);margin-top:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 23px;background:var(--gold);color:var(--navy);font-weight:700;border:1px solid var(--gold);transition:.25s;cursor:pointer}
+.btn:hover{background:var(--goldlight);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:white;border-color:rgba(255,255,255,.7)}
+.btn-outline:hover{color:var(--navy)}
+/* HEADER */
+header{position:sticky;top:0;z-index:1000;background:var(--white);box-shadow:0 3px 18px #07172e12}
+.topline{height:4px;background:linear-gradient(90deg,var(--navy),var(--gold),var(--navy))}
+.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;min-width:190px}
+.brand img{width:75px;height:64px;object-fit:contain}
+.brand-text strong{font-family:'Playfair Display',serif;color:var(--navy);font-size:23px;display:block;line-height:1.1}
+.brand-text span{font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+nav{display:flex;align-items:center;gap:19px}
+nav a{font-size:12px;font-weight:700;color:var(--navy);white-space:nowrap;transition:.2s}
+nav a:hover{color:var(--gold)}
+nav .nav-contact{background:var(--navy);color:white;padding:11px 16px}
+.menu-toggle{display:none;background:none;border:0;font-size:28px;color:var(--navy);cursor:pointer}
+/* HERO */
+.hero{position:relative;min-height:640px;display:flex;align-items:center;color:white;background:linear-gradient(90deg,rgba(4,16,34,.91),rgba(4,16,34,.48),rgba(4,16,34,.08)),url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=85') center/cover}
+.hero-content{max-width:710px;padding:100px 0}
+.hero h1{font-size:clamp(43px,6.5vw,76px);margin:20px 0;color:white}
+.hero h1 span{color:var(--goldlight)}
+.hero p{font-size:17px;color:#f0f1f4;max-width:590px;margin-bottom:30px}
+.hero-buttons{display:flex;gap:13px;flex-wrap:wrap}
+.hero-note{margin-top:40px;border-left:2px solid var(--gold);padding-left:17px;color:#eee;font-size:13px}
+/* QUICK NAV */
+.quick-nav{background:var(--navy);color:white}
+.quick-grid{display:grid;grid-template-columns:repeat(6,1fr)}
+.quick-grid a{padding:24px 9px;text-align:center;border-right:1px solid #ffffff18;font-size:12px;font-weight:700;transition:.2s}
+.quick-grid a:hover{background:#173453;color:var(--goldlight)}
+.quick-grid .symbol{display:block;font-size:23px;color:var(--gold);margin-bottom:5px}
+/* INTRO */
+.intro{background:var(--cream)}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.intro-image{height:430px;position:relative}
+.intro-image img{height:100%}
+.image-label{position:absolute;bottom:20px;right:-18px;background:var(--navy);color:white;padding:20px 26px;max-width:230px}
+.image-label strong{display:block;font-family:'Playfair Display',serif;font-size:20px;color:var(--goldlight)}
+.intro-copy h2{margin:15px 0}
+.intro-copy p{color:var(--muted);margin:15px 0}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:25px}
+.feature{border-left:2px solid var(--gold);padding:5px 0 5px 13px}
+.feature strong{display:block;color:var(--navy)}
+.feature small{color:var(--muted)}
+/* PROPERTY CARDS */
+.property-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}
+.property-card{border:1px solid var(--border);background:white;transition:.3s}
+.property-card:hover{transform:translateY(-6px);box-shadow:0 15px 35px #07172e13}
+.property-photo{height:235px;position:relative;overflow:hidden}
+.property-photo img{height:100%;transition:.5s}
+.property-card:hover img{transform:scale(1.05)}
+.photo-tag{position:absolute;top:15px;left:15px;background:var(--navy);color:white;padding:7px 12px;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.property-info{padding:22px}
+.property-info h3{font-size:22px;color:var(--navy);margin-bottom:8px}
+.property-info p{font-size:13px;color:var(--muted);min-height:62px}
+.property-info a{display:inline-block;margin-top:14px;font-size:12px;color:#98712d;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+/* BANNER */
+.banner{background:linear-gradient(90deg,rgba(5,20,40,.92),rgba(5,20,40,.7)),url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85') center/cover;padding:85px 0;color:white;text-align:center}
+.banner h2{color:white;margin:14px 0}
+.banner p{max-width:650px;margin:0 auto 25px;color:#e5e7eb}
+/* DETAIL SECTIONS */
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.detail-grid img{height:390px}
+.detail-copy h2{margin:14px 0}
+.detail-copy p{color:var(--muted);margin-bottom:18px}
+.detail-copy ul{padding-left:20px;color:var(--text);margin:18px 0}
+.detail-copy li{padding:5px 0}
+.alt{background:var(--cream)}
+/* SERVICES */
+.services{background:var(--navy);color:white}
+.services h2{color:white}
+.services .section-head p{color:#c4ccd6}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.service{border:1px solid #ffffff24;padding:27px 20px;min-height:205px}
+.service .icon{font-size:27px;color:var(--gold);margin-bottom:15px}
+.service h3{font-size:19px;margin-bottom:9px;color:var(--goldlight)}
+.service p{font-size:13px;color:#c4ccd6}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.about-grid img{height:390px}
+.about-grid p{color:var(--muted);margin:16px 0}
+.promise{background:var(--cream);padding:23px;border-left:3px solid var(--gold);margin-top:22px}
+/* CONTACT */
+.contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:45px}
+.contact-info{background:var(--navy);padding:37px;color:white}
+.contact-info h2{color:white;font-size:34px;margin:12px 0}
+.contact-info p{color:#d0d7e0;margin-bottom:25px}
+.contact-line{padding:15px 0;border-top:1px solid #ffffff25}
+.contact-line strong{display:block;color:var(--goldlight);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+.contact-line span{font-size:14px}
+.contact-form{background:white;padding:35px;border:1px solid var(--border)}
+.contact-form h3{font-size:27px;color:var(--navy);margin-bottom:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:13px;border:1px solid #ddd;background:#fff;font:14px 'DM Sans',sans-serif;outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+.field textarea{height:120px;resize:vertical}
+.form-message{font-size:12px;color:var(--muted);margin-top:12px}
+/* FOOTER */
+footer{background:#041124;color:white;padding:45px 0 20px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:35px}
+footer h3{color:var(--goldlight);font-size:20px;margin-bottom:13px}
+footer p,footer a{font-size:13px;color:#c5ced9}
+footer a{display:block;margin:8px 0}
+footer a:hover{color:var(--gold)}
+.copyright{border-top:1px solid #ffffff20;padding-top:18px;text-align:center;font-size:11px;color:#9ba8b7}
+@media(max-width:1000px){
+ nav{gap:11px}nav a{font-size:11px}
+ .quick-grid{grid-template-columns:repeat(3,1fr)}
+ .service-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+ .nav{min-height:72px}
+ .brand img{width:55px;height:53px}
+ .brand-text strong{font-size:20px}
+ .menu-toggle{display:block}
+ nav{display:none;position:absolute;top:76px;left:0;right:0;background:white;padding:15px 5%;box-shadow:0 12px 15px #07172e18;flex-direction:column;align-items:stretch;gap:0}
+ nav.open{display:flex}
+ nav a{padding:12px 5px;border-bottom:1px solid var(--border);font-size:13px}
+ nav .nav-contact{text-align:center;margin-top:10px}
+ .hero{min-height:570px}
+ .hero-content{padding:75px 0}
+ .hero p{font-size:15px}
+ .section{padding:65px 0}
+ .intro-grid,.detail-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:32px}
+ .intro-image{height:310px}
+ .image-label{right:0}
+ .property-grid{grid-template-columns:1fr}
+ .property-photo{height:245px}
+ .detail-grid img,.about-grid img{height:280px}
+ .detail-grid.reverse{display:flex;flex-direction:column-reverse}
+ .service-grid{grid-template-columns:1fr 1fr}
+ .footer-grid{grid-template-columns:1fr;gap:25px}
+ .form-row{grid-template-columns:1fr}
+}
+@media(max-width:420px){
+ .quick-grid{grid-template-columns:repeat(2,1fr)}
+ .service-grid{grid-template-columns:1fr}
+ .hero-buttons .btn{width:100%}
+}
+</style>
+</head>
+
+<body>
+<div class="topline"></div>
+
+<header>
+ <div class="container nav">
+  <a class="brand" href="#home">
+   <img src="logo.png" alt="PPS18 Property Group logo">
+   <span class="brand-text">
+    <strong>PPS18</strong>
+    <span>Property Group · Thailand</span>
+   </span>
+  </a>
+  <button class="menu-toggle" aria-label="Open navigation" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+  <nav>
+   <a href="#home">HOME</a>
+   <a href="#residential">VILLAS & HOUSES</a>
+   <a href="#apartments">APARTMENTS</a>
+   <a href="#retail">RETAIL</a>
+   <a href="#offices">OFFICES</a>
+   <a href="#buy-sell">BUY & SELL</a>
+   <a href="#about">ABOUT</a>
+   <a class="nav-contact" href="#contact">CONTACT US</a>
+  </nav>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="container hero-content">
+  <div class="eyebrow">Thailand · Real Estate · Property Management</div>
+  <h1>Your Property.<br><span>Our Prestige.</span></h1>
+  <p>Discover residential and commercial property opportunities across Thailand. From luxury villas and apartments to retail units and office spaces, PPS18 Property Group is here to help.</p>
+  <div class="hero-buttons">
+   <a class="btn" href="#residential">EXPLORE PROPERTIES ↗</a>
+   <a class="btn btn-outline" href="#contact">MAKE AN ENQUIRY</a>
+  </div>
+  <div class="hero-note">BUY · SELL · LEASE · SUBLEASE</div>
+ </div>
+</section>
+
+<div class="quick-nav">
+ <div class="container quick-grid">
+  <a href="#residential"><span class="symbol">⌂</span>VILLAS & HOUSES</a>
+  <a href="#apartments"><span class="symbol">▤</span>APARTMENTS</a>
+  <a href="#retail"><span class="symbol">⌑</span>RETAIL UNITS</a>
+  <a href="#offices"><span class="symbol">▥</span>OFFICES</a>
+  <a href="#buy-sell"><span class="symbol">◆</span>BUY & SELL</a>
+  <a href="#subleasing"><span class="symbol">⇄</span>SUBLEASING</a>
+ </div>
+</div>
+
+<section class="section intro">
+ <div class="container intro-grid">
+  <div class="intro-image">
+   <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85" alt="Luxury modern villa in Thailand">
+   <div class="image-label"><strong>Property with purpose.</strong>Professional service from enquiry to agreement.</div>
+  </div>
+  <div class="intro-copy">
+   <div class="eyebrow">Welcome to PPS18</div>
+   <h2>Property opportunities. <span class="gold">Personal service.</span></h2>
+   <p>PPS18 Property Group brings together residential and commercial property opportunities in Thailand. Whether you're looking for a home, a business location or a property transaction, we aim to make the process clear and straightforward.</p>
+   <p>We assist with buying, selling, leasing and subleasing, with contract preparation handled in-house.</p>
+   <div class="features">
+    <div class="feature"><strong>Residential</strong><small>Villas, houses and apartments</small></div>
+    <div class="feature"><strong>Commercial</strong><small>Retail, hospitality and offices</small></div>
+    <div class="feature"><strong>Property services</strong><small>Buy, sell, lease and sublease</small></div>
+    <div class="feature"><strong>In-house contracts</strong><small>Contract preparation and coordination</small></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="residential">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">Residential property</div>
+   <h2>Villas & Houses</h2>
+   <p>Find a place to call home, from contemporary villas to spacious family houses in Thailand.</p>
+  </div>
+  <div class="property-grid">
+   <article class="property-card">
+    <div class="property-photo"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=85" alt="Luxury villa with swimming pool"><span class="photo-tag">Luxury living</span></div>
+    <div class="property-info"><h3>Luxury Villas</h3><p>Private villas, beautiful outdoor spaces and swimming-pool properties for residential living.</p><a href="#contact">Enquire about villas →</a></div>
+   </article>
+   <article class="property-card">
+    <div class="property-photo"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Contemporary house"><span class="photo-tag">Residential</span></div>
+    <div class="property-info"><h3>Houses</h3><p>Explore houses and residential properties to suit different needs and lifestyles.</p><a href="#contact">Enquire about houses →</a></div>
+   </article>
+   <article class="property-card">
+    <div class="property-photo"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85" alt="Modern tropical home"><span class="photo-tag">Modern homes</span></div>
+    <div class="property-info"><h3>Premium Homes</h3><p>Discover modern architecture, quality interiors and attractive residential locations.</p><a href="#contact">Make an enquiry →</a></div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="section alt" id="apartments">
+ <div class="container detail-grid">
+  <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1100&q=85" alt="Elegant apartment interior">
+  <div class="detail-copy">
+   <div class="eyebrow">Residential rentals</div>
+   <h2>Apartments & Condominiums</h2>
+   <p>From modern city apartments to comfortable condominium living, explore residential rental and leasing opportunities in Thailand.</p>
+   <ul><li>Apartment leasing opportunities</li><li>Condominium rentals</li><li>Residential lease enquiries</li><li>Assistance with contract preparation</li></ul>
+   <a class="btn" href="#contact">ENQUIRE ABOUT APARTMENTS</a>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="retail">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">Commercial property</div>
+   <h2>Retail Units, Shops & Hospitality</h2>
+   <p>Commercial spaces for businesses, independent retailers and hospitality operators.</p>
+  </div>
+  <div class="property-grid">
+   <article class="property-card">
+    <div class="property-photo"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=85" alt="Retail shop interior"><span class="photo-tag">Retail</span></div>
+    <div class="property-info"><h3>Retail Shops</h3><p>Shop units and commercial premises for businesses looking for their next location.</p><a href="#contact">Enquire about shops →</a></div>
+   </article>
+   <article class="property-card">
+    <div class="property-photo"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=85" alt="Restaurant interior"><span class="photo-tag">Restaurants</span></div>
+    <div class="property-info"><h3>Restaurants</h3><p>Restaurant premises and hospitality spaces for food and beverage businesses.</p><a href="#contact">Enquire about restaurants →</a></div>
+   </article>
+   <article class="property-card">
+    <div class="property-photo"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=85" alt="Bar interior"><span class="photo-tag">Hospitality</span></div>
+    <div class="property-info"><h3>Bars & Hospitality</h3><p>Commercial opportunities for bars and other hospitality businesses.</p><a href="#contact">Enquire about hospitality →</a></div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="section alt" id="offices">
+ <div class="container detail-grid">
+  <div class="detail-copy">
+   <div class="eyebrow">Business premises</div>
+   <h2>Office Spaces & Buildings</h2>
+   <p>Professional office environments for businesses seeking flexible commercial property in Thailand.</p>
+   <ul><li>Individual office spaces</li><li>Commercial office buildings</li><li>Business premises for lease</li><li>Commercial contract preparation</li></ul>
+   <a class="btn" href="#contact">ENQUIRE ABOUT OFFICES</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85" alt="Modern professional office interior">
+ </div>
+</section>
+
+<section class="banner" id="buy-sell">
+ <div class="container">
+  <div class="eyebrow">Property transactions</div>
+  <h2>Looking to Buy or Sell?</h2>
+  <p>Tell us what you're looking for. PPS18 Property Group welcomes enquiries from buyers, sellers and property owners across Thailand.</p>
+  <a class="btn" href="#contact">DISCUSS YOUR PROPERTY</a>
+ </div>
+</section>
+
+<section class="section" id="subleasing">
+ <div class="container detail-grid">
+  <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85" alt="Premium property interior">
+  <div class="detail-copy">
+   <div class="eyebrow">Flexible property opportunities</div>
+   <h2>Leasing & Subleasing</h2>
+   <p>We work with residential and commercial property enquiries, including leasing and subleasing opportunities, subject to the relevant owner's permissions and applicable agreements.</p>
+   <ul><li>Residential leasing</li><li>Commercial leasing</li><li>Sublease opportunities</li><li>In-house contract preparation</li></ul>
+   <a class="btn" href="#contact">DISCUSS LEASING</a>
+  </div>
+ </div>
+</section>
+
+<section class="section services" id="services">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">How we help</div>
+   <h2>Property Services</h2>
+   <p>A straightforward approach to residential and commercial property transactions.</p>
+  </div>
+  <div class="service-grid">
+   <div class="service"><div class="icon">⌂</div><h3>Buy & Sell</h3><p>Enquiries and assistance with property buying and selling opportunities.</p></div>
+   <div class="service"><div class="icon">⌑</div><h3>Leasing</h3><p>Residential and commercial leasing enquiries and arrangements.</p></div>
+   <div class="service"><div class="icon">⇄</div><h3>Subleasing</h3><p>Sublease opportunities, subject to permissions and agreed terms.</p></div>
+   <div class="service"><div class="icon">▤</div><h3>In-house Contracts</h3><p>Contract preparation and coordination handled in-house, with appropriate local legal review where required.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="about">
+ <div class="container about-grid">
+  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=85" alt="Contemporary luxury property">
+  <div>
+   <div class="eyebrow">About PPS18 Property Group</div>
+   <h2>Built Around Property. Focused on People.</h2>
+   <p>PPS18 Property Group is focused on residential and commercial property opportunities in Thailand.</p>
+   <p>Our services cover buying, selling, leasing and subleasing. We also prepare property contracts in-house, helping bring clarity and organisation to the process.</p>
+   <div class="promise"><strong class="gold">Your Property. Our Prestige.</strong><br>Professional service, clear communication and attention to detail.</div>
+  </div>
+ </div>
+</section>
+
+<section class="section contact" id="contact">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">Get in touch</div>
+   <h2>Let's Talk Property</h2>
+   <p>Looking to buy, sell, lease or sublease in Thailand? Send us your enquiry.</p>
+  </div>
+  <div class="contact-grid">
+   <div class="contact-info">
+    <div class="eyebrow">PPS18 Property Group</div>
+    <h2>How can we help?</h2>
+    <p>Contact our team to discuss residential or commercial property opportunities.</p>
+    <div class="contact-line"><strong>Email</strong><span>Contact details coming soon</span></div>
+    <div class="contact-line"><strong>Telephone / WhatsApp</strong><span>Contact details coming soon</span></div>
+    <div class="contact-line"><strong>Location</strong><span>Thailand</span></div>
+    <div class="contact-line"><strong>Our services</strong><span>Buy · Sell · Lease · Sublease</span></div>
+   </div>
+   <form class="contact-form" id="enquiryForm">
+    <h3>Send an enquiry</h3>
+    <div class="form-row">
+     <div class="field"><label for="name">Your name *</label><input id="name" name="name" required placeholder="Full name"></div>
+     <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" required placeholder="Your email"></div>
+    </div>
+    <div class="form-row">
+     <div class="field"><label for="phone">Telephone / WhatsApp</label><input id="phone" name="phone" placeholder="Your number"></div>
+     <div class="field"><label for="interest">I'm interested in *</label>
+      <select id="interest" name="interest" required>
+       <option value="">Please select</option>
+       <option>Buying a property</option><option>Selling a property</option>
+       <option>Villa or house</option><option>Apartment</option>
+       <option>Retail shop</option><option>Restaurant or bar</option>
+       <option>Office space</option><option>Leasing</option>
+       <option>Subleasing</option><option>Other enquiry</option>
+      </select>
+     </div>
+    </div>
+    <div class="field"><label for="message">Your message *</label><textarea id="message" name="message" required placeholder="Tell us a little about the property you are looking for..."></textarea></div>
+    <button type="submit" class="btn">SEND ENQUIRY ↗</button>
+    <p class="form-message" id="formMessage">The enquiry form will be connected to your business email before launch.</p>
+   </form>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container">
+  <div class="footer-grid">
+   <div><h3>PPS18 Property Group</h3><p>Residential and commercial property opportunities in Thailand.</p><p style="margin-top:14px;color:#e8cb8e;font-family:'Playfair Display',serif">Your Property. Our Prestige.</p></div>
+   <div><h3>Explore</h3><a href="#residential">Villas & Houses</a><a href="#apartments">Apartments</a><a href="#retail">Retail Units</a><a href="#offices">Offices</a><a href="#buy-sell">Buy & Sell</a></div>
+   <div><h3>Company</h3><a href="#about">About Us</a><a href="#services">Our Services</a><a href="#subleasing">Leasing & Subleasing</a><a href="#contact">Contact Us</a></div>
+  </div>
+  <div class="copyright">© <span id="year"></span> PPS18 Property Group. All rights reserved. · Thailand</div>
+ </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+document.querySelectorAll('nav a').forEach(link=>{
+ link.addEventListener('click',()=>{
+  document.querySelector('nav').classList.remove('open');
+ });
+});
+
+// Temporary email hand-off. Replace this address before launch.
+document.getElementById('enquiryForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const destination = 'YOUR_EMAIL_HERE';
+ if(destination === 'YOUR_EMAIL_HERE'){
+  document.getElementById('formMessage').textContent =
+  'Thank you. The form is ready; our business email will be connected before launch.';
+  alert('The enquiry form is designed. We will connect your business email before the website goes live.');
+  return;
+ }
+ const data = new FormData(this);
+ const subject = encodeURIComponent('PPS18 Property Enquiry - '+data.get('interest'));
+ const body = encodeURIComponent(
+  'Name: '+data.get('name')+
+  '\nEmail: '+data.get('email')+
+  '\nTelephone: '+data.get('phone')+
+  '\nInterest: '+data.get('interest')+
+  '\n\nMessage:\n'+data.get('message')
+ );
+ window.location.href='mailto:'+destination+'?subject='+subject+'&body='+body;
+});
+</script>
+</body>
+</html>
+
