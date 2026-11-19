@@ -61,27 +61,5 @@ header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #
 </div>
 </div>
 </section></main><footer><div class="container">© 2026 PPS18 Property Group · Thailand · <a href="mailto:info@pps18propertygroup.com">info@pps18propertygroup.com</a></div></footer>
-<script>
-(async function(){
- const grid=document.getElementById('listingGrid');
- const client=window.supabase.createClient('https://mlyyfxywfrrsyzehveuq.supabase.co','sb_publishable_pBCFrxcZMYEswJxTpl885g_a4yvzaAr');
- const category="Restaurants & Bars";
- const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
- const money=p=>p.price==null?'Price on request':new Intl.NumberFormat('en-US',{style:'currency',currency:p.price_currency||'THB',maximumFractionDigits:0}).format(Number(p.price));
- try{
-  let q=client.from('properties').select('id,title,category,listing_type,location,area,price,price_currency,bedrooms,bathrooms,size_sqm,description,cover_image,image_urls,status,created_at').eq('status','published').order('created_at',{ascending:false});
-  if(category) q=q.eq('category',category);
-  const {data,error}=await q;
-  if(error) throw error;
-  if(!data||!data.length){grid.innerHTML='<div class="empty"><h3>New listings coming soon</h3><p>There are no published properties in this section yet. Please contact us if you have a particular property or location in mind.</p><a class="btn" href="index.html#contact">MAKE AN ENQUIRY</a></div>';return;}
-  grid.innerHTML=data.map(p=>{
-   const photo=p.cover_image||(p.image_urls&&p.image_urls[0]);
-   const facts=[p.bedrooms!=null?p.bedrooms+' bedrooms':'',p.bathrooms!=null?p.bathrooms+' bathrooms':'',p.size_sqm!=null?p.size_sqm+' m²':''].filter(Boolean).join(' · ');
-   const excerpt=(p.description||'').length>155?p.description.slice(0,152)+'…':(p.description||'');
-   const subject=encodeURIComponent('Property enquiry: '+p.title+' ('+p.id+')');
-   return '<article class="property-card">'+(photo?'<img loading="lazy" src="'+esc(photo)+'" alt="'+esc(p.title)+'">':'<div class="no-photo">Photographs coming soon</div>')+'<div class="property-body"><span class="property-tag">'+esc(p.listing_type)+'</span><h3>'+esc(p.title)+'</h3><div class="property-meta">'+esc([p.area,p.location].filter(Boolean).join(', '))+'</div><div class="property-price">'+esc(money(p))+'</div>'+(facts?'<div class="property-meta">'+esc(facts)+'</div>':'')+'<p class="property-desc">'+esc(excerpt)+'</p><a class="property-link" href="property.html?id='+encodeURIComponent(p.id)+'">VIEW PROPERTY DETAILS</a></div></article>';
-  }).join('');
- }catch(err){grid.innerHTML='<div class="empty"><h3>Listings are temporarily unavailable</h3><p>Please try again shortly or contact our team directly.</p><a class="btn" href="mailto:info@pps18propertygroup.com">CONTACT PPS18</a></div>';console.error(err);}
-})();
-</script><a class="pps18-whatsapp-float" href="https://wa.me/66987373938?text=Hello%20PPS18%2C%20I%20have%20a%20property%20enquiry." target="_blank" rel="noopener noreferrer" aria-label="Contact PPS18 Property Group on WhatsApp"><span aria-hidden="true">✆</span><span>CHAT WITH PPS18</span></a>
+<a class="pps18-whatsapp-float" href="https://wa.me/66987373938?text=Hello%20PPS18%2C%20I%20have%20a%20property%20enquiry." target="_blank" rel="noopener noreferrer" aria-label="Contact PPS18 Property Group on WhatsApp"><span aria-hidden="true">✆</span><span>CHAT WITH PPS18</span></a>
 </body></html>
