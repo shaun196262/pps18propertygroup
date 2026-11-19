@@ -316,7 +316,7 @@ footer a:hover{color:var(--gold)}
 <a href="offices.html">OFFICES</a>
 <a href="#about">ABOUT</a>
 <a href="#services">SERVICES</a>
-<a href="#contact" class="contact-link">CONTACT</a>
+<a href="index.html#contact" class="contact-link">CONTACT</a>
 </nav>
 </div>
 </div>
@@ -330,7 +330,7 @@ footer a:hover{color:var(--gold)}
 <p>From the energy of Patong to the relaxed coastlines of the south and the beautiful beaches of the west, PPS18 Property Group helps people explore property opportunities across Phuket and beyond.</p>
 <div class="hero-buttons">
 <a class="btn" href="listings.html">EXPLORE PROPERTY LISTINGS →</a>
-<a class="btn btn-outline" href="#contact">SPEAK TO OUR TEAM</a>
+<a class="btn btn-outline" href="index.html#contact">SPEAK TO OUR TEAM</a>
 </div>
 <div class="hero-note">PHUKET · PHANG NGA · SOUTHERN THAILAND</div>
 </div>
@@ -403,7 +403,7 @@ footer a:hover{color:var(--gold)}
 </div>
 <div class="owner-bottom">
 <div><div class="eyebrow">SELL · RENT · LEASE · COMMERCIAL</div><h3>Your Property Deserves the Right Attention.</h3><p>Start with a conversation. Tell us what you own and what you would like to achieve.</p></div>
-<a class="category-cta-button" href="#contact">LIST YOUR PROPERTY WITH PPS18 →</a>
+<a class="category-cta-button" href="index.html#contact">LIST YOUR PROPERTY WITH PPS18 →</a>
 </div>
 </div>
 </section>
@@ -420,13 +420,13 @@ footer a:hover{color:var(--gold)}
 </section>
 
 <section class="banner" id="buy-sell">
-<div class="container"><div class="eyebrow">PROPERTY TRANSACTIONS</div><h2>Looking to Buy or Sell?</h2><p>Whether you are a buyer, seller or property owner, speak to PPS18 Property Group about your property requirements in Phuket, the surrounding region or elsewhere in Thailand.</p><a class="btn" href="#contact">DISCUSS YOUR PROPERTY</a></div>
+<div class="container"><div class="eyebrow">PROPERTY TRANSACTIONS</div><h2>Looking to Buy or Sell?</h2><p>Whether you are a buyer, seller or property owner, speak to PPS18 Property Group about your property requirements in Phuket, the surrounding region or elsewhere in Thailand.</p><a class="btn" href="index.html#contact">DISCUSS YOUR PROPERTY</a></div>
 </section>
 
 <section class="section" id="subleasing">
 <div class="container detail">
 <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85" alt="Luxury property interior">
-<div><div class="eyebrow">FLEXIBLE PROPERTY OPPORTUNITIES</div><h2>Lease & Sublease</h2><p>Residential and commercial lease and sublease enquiries across Phuket and Thailand, subject to the necessary owner permissions and applicable agreements.</p><ul><li>Residential property to lease</li><li>Commercial property to lease</li><li>Hospitality property to lease</li><li>Sublease opportunities</li></ul><a class="btn" href="#contact">DISCUSS LEASE OPTIONS</a></div>
+<div><div class="eyebrow">FLEXIBLE PROPERTY OPPORTUNITIES</div><h2>Lease & Sublease</h2><p>Residential and commercial lease and sublease enquiries across Phuket and Thailand, subject to the necessary owner permissions and applicable agreements.</p><ul><li>Residential property to lease</li><li>Commercial property to lease</li><li>Hospitality property to lease</li><li>Sublease opportunities</li></ul><a class="btn" href="index.html#contact">DISCUSS LEASE OPTIONS</a></div>
 </div>
 </section>
 
@@ -515,9 +515,9 @@ footer a:hover{color:var(--gold)}
 <div class="container">
 <div class="footer-grid">
 <div><h3>PPS18 Property Group</h3><p>Residential, commercial and hospitality property opportunities across Thailand.</p><p style="color:#e8cb8e;margin-top:13px">Your Property. Our Prestige.</p></div>
-<div><h3>Property</h3><a href="#villas">Villas & Houses</a><a href="#apartments">Apartments</a><a href="#hotels">Hotels</a><a href="#restaurants">Restaurants & Bars</a><a href="#retail">Retail Units</a><a href="#offices">Offices</a></div>
-<div><h3>Company</h3><a href="#about">About Us</a><a href="#services">Our Services</a><a href="#buy-sell">Buy & Sell</a><a href="#subleasing">Lease & Sublease</a><a href="#contact">Contact Us</a></div>
-<div><h3>Contact</h3><a href="mailto:info@pps18propertygroup.com">info@pps18propertygroup.com</a><a href="https://wa.me/66987373938" target="_blank" rel="noopener">Thailand WhatsApp: +66 98-737-3938</a><a href="#contact">Thailand</a></div>
+<div><h3>Property</h3><a href="villas.html">Villas & Houses</a><a href="apartments.html">Apartments</a><a href="hotels.html">Hotels</a><a href="restaurants.html">Restaurants & Bars</a><a href="retail.html">Retail Units</a><a href="offices.html">Offices</a></div>
+<div><h3>Company</h3><a href="#about">About Us</a><a href="#services">Our Services</a><a href="#buy-sell">Buy & Sell</a><a href="#subleasing">Lease & Sublease</a><a href="index.html#contact">Contact Us</a></div>
+<div><h3>Contact</h3><a href="mailto:info@pps18propertygroup.com">info@pps18propertygroup.com</a><a href="https://wa.me/66987373938" target="_blank" rel="noopener">Thailand WhatsApp: +66 98-737-3938</a><a href="index.html#contact">Thailand</a></div>
 </div>
 <div class="copyright">© <span id="year"></span> PPS18 Property Group. All rights reserved. · Thailand</div>
 </div>
@@ -546,7 +546,7 @@ ownerFieldIds.forEach(id=>{document.getElementById(id).required=isOwner;});
 interestSelect.addEventListener('change',updateOwnerFields);
 updateOwnerFields();
 // Owner call-to-action takes visitors to the enquiry form and selects the owner route.
-document.querySelectorAll('.owner-bottom a[href="#contact"]').forEach(link=>link.addEventListener('click',()=>{
+document.querySelectorAll('.owner-bottom a[href="index.html#contact"]').forEach(link=>link.addEventListener('click',()=>{
 interestSelect.value='Property owner — discuss my options';updateOwnerFields();
 }));
 enquiryForm.addEventListener('submit',function(e){
