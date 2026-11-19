@@ -42,6 +42,18 @@ h2{font-size:clamp(30px,4vw,43px);color:var(--navy)}
 .brand-logo img{display:block;width:min(940px,92vw);height:270px;object-fit:contain;object-position:center}
 @media(max-width:1100px){.brand-logo img{width:min(790px,88vw);height:230px}}
 @media(max-width:760px){.brand-logo img{width:min(620px,calc(100vw - 54px));height:202px}}
+/* FINAL LOGO SCALE — override legacy .brand img sizing */
+@media(min-width:761px){
+ .nav{min-height:320px!important;height:320px!important;padding-top:0!important;padding-bottom:0!important;overflow:visible}
+ .nav .brand-logo{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;width:100%!important;height:100%!important}
+ .nav .brand-logo img{width:min(1080px,96vw)!important;height:310px!important;max-width:none!important;object-fit:contain!important}
+}
+@media(max-width:760px){
+ .nav{min-height:250px!important;height:250px!important;padding:0!important;overflow:visible}
+ .nav .brand-logo{position:absolute!important;left:50%!important;top:47%!important;transform:translate(-50%,-50%)!important;width:100%!important;height:220px!important}
+ .nav .brand-logo img{width:calc(100vw - 24px)!important;height:220px!important;max-width:none!important;object-fit:contain!important}
+ .nav .menu{right:8px!important;top:auto!important;bottom:5px!important;transform:none!important;z-index:3}
+}
 /* PREMIUM NAVIGATION */
 header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #07172e12}
 .topline{height:4px;background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 48%,var(--navy) 100%)}
