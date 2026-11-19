@@ -18,6 +18,9 @@ header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #
 .navbar nav .contact-link:after{display:none}.navbar nav .contact-link:hover{background:#f1d99d;color:#07172e}
 @media(max-width:1100px){.nav{min-height:112px}.brand img,.brand .pps18-header-logo{width:290px;height:106px}.navbar nav{gap:10px}.navbar nav a{font-size:9px;letter-spacing:.35px}}
 @media(max-width:760px){.nav{min-height:100px}.brand img,.brand .pps18-header-logo{width:250px;height:94px}.menu{display:block;border-radius:2px;position:absolute;right:0;top:50%;transform:translateY(-50%)}.navbar{display:none}.navbar nav{display:flex;position:static;min-height:0;padding:10px 0 16px;flex-direction:column;align-items:stretch;gap:0;box-shadow:none}.navbar nav.open{display:flex}.navbar nav a{min-height:0;padding:13px 8px;border-bottom:1px solid #ffffff18;font-size:11px;letter-spacing:1px}.navbar nav a:after{display:none}.navbar nav .contact-link{text-align:center;justify-content:center;margin-top:12px;padding:12px}}
+
+/* Mobile menu visibility: reveal the full-width bar when the menu is opened */
+@media(max-width:760px){.navbar:has(nav.open){display:block!important}}
 </style></head><body><div class="topline"></div><header>
 <div class="container nav">
 <a href="index.html" class="brand brand-logo" aria-label="PPS18 Property Group home">
