@@ -37,30 +37,11 @@ h2{font-size:clamp(30px,4vw,43px);color:var(--navy)}
 .btn:hover{background:var(--lightgold);transform:translateY(-2px)}
 .btn-outline{background:transparent;color:white;border-color:white}
 .btn-outline:hover{color:var(--navy)}
-/* CLEAN LUXURY WORDMARK — replaces the square badge artwork */
-.brand-wordmark{width:390px;min-height:112px;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;text-decoration:none!important}
-.brand-wordmark .brand-main{font-family:'Playfair Display',serif;font-size:clamp(54px,5.4vw,72px);font-weight:700;line-height:.88;letter-spacing:1px;color:#b58a3a;text-shadow:0 1px 0 #f6e6b8}
-.brand-wordmark .brand-sub{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:5px;line-height:1.5;color:var(--navy);margin-top:7px}
-.brand-wordmark .brand-tagline{font-family:'Playfair Display',serif;font-size:12px;font-style:italic;letter-spacing:.7px;color:#98712d;margin-top:3px}
-@media(max-width:1100px){.brand-wordmark{width:330px}.brand-wordmark .brand-main{font-size:62px}}
-@media(max-width:760px){
- .brand-wordmark{width:250px;min-height:90px}
- .brand-wordmark .brand-main{font-size:56px}
- .brand-wordmark .brand-sub{font-size:11px;letter-spacing:4px;margin-top:5px}
- .brand-wordmark .brand-tagline{font-size:10px}
-}
-/* PPS18 HEADER ALIGNMENT — FINAL OVERRIDE */
-@media(min-width:761px){
-  .nav{min-height:142px!important;display:flex!important;justify-content:center!important;align-items:center!important}
-  .nav .brand{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;margin:0!important}
-  .nav .brand-wordmark{width:390px!important;max-width:72vw!important}
-}
-@media(max-width:760px){
-  .nav{min-height:112px!important;display:flex!important;justify-content:center!important;align-items:center!important}
-  .nav .brand{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;margin:0!important}
-  .nav .brand-wordmark{width:250px!important;max-width:calc(100vw - 110px)!important}
-  .nav .menu{position:absolute!important;right:0!important;top:50%!important;transform:translateY(-50%)!important;z-index:2}
-}
+/* PPS18 SIGNATURE LOGO — spacious, centred, light header */
+.brand-logo{display:flex!important;align-items:center;justify-content:center;width:100%;height:100%;margin:0!important;text-decoration:none}
+.brand-logo img{display:block;width:min(760px,82vw);height:205px;object-fit:contain;object-position:center}
+@media(max-width:1100px){.brand-logo img{width:min(650px,78vw);height:190px}}
+@media(max-width:760px){.brand-logo img{width:min(520px,calc(100vw - 88px));height:164px}}
 /* PREMIUM NAVIGATION */
 header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #07172e12}
 .topline{height:4px;background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 48%,var(--navy) 100%)}
@@ -289,10 +270,8 @@ footer a:hover{color:var(--gold)}
 <div class="topline"></div>
 <header>
 <div class="container nav">
-<a href="index.html" class="brand brand-wordmark" aria-label="PPS18 Property Group home">
-<span class="brand-main">PPS18</span>
-<span class="brand-sub">PROPERTY GROUP</span>
-<span class="brand-tagline">YOUR PROPERTY. OUR PRESTIGE.</span>
+<a href="index.html" class="brand brand-logo" aria-label="PPS18 Property Group home">
+<img src="./pps18-logo.svg?v=2" alt="PPS18 Property Group — Your Property. Our Prestige.">
 </a>
 <button class="menu" aria-label="Open menu" aria-expanded="false" onclick="const menu=document.querySelector('.navbar nav');const open=menu.classList.toggle('open');this.setAttribute('aria-expanded',open?'true':'false')">☰</button>
 </div>
