@@ -505,7 +505,7 @@ footer a:hover{color:var(--gold)}
 </div>
 <div class="field"><label for="message">Your message *</label><textarea id="message" name="message" required placeholder="Tell us about your property requirements..."></textarea></div>
 <button class="btn" type="submit">SEND ENQUIRY →</button>
-<p class="form-note" id="formNote">Your enquiry will be sent securely to the PPS18 team.</p>
+<p class="form-note" id="formNote">Your email app will open with your enquiry ready to send. Nothing is submitted until you press Send.</p>
 </form>
 </div>
 </div>
@@ -534,7 +534,7 @@ const ownerFieldIds=['propertyLocation','ownerPropertyType','ownerService'];
 function updateOwnerFields(){const isOwner=(interestSelect.value||'').startsWith('Property owner');ownerFields.hidden=!isOwner;ownerFieldIds.forEach(id=>{document.getElementById(id).required=isOwner;});}
 interestSelect.addEventListener('change',updateOwnerFields);updateOwnerFields();
 document.querySelectorAll('.owner-bottom a[href="index.html#contact"]').forEach(link=>link.addEventListener('click',()=>{interestSelect.value='Property owner — discuss my options';updateOwnerFields();}));
-enquiryForm.addEventListener('submit',function(e){e.preventDefault();if(!this.reportValidity())return;const data=new FormData(this);const subject=encodeURIComponent('PPS18 website enquiry — '+String(data.get('interest')||''));const body=encodeURIComponent([...data.entries()].map(([k,v])=>k+': '+v).join('\n'));window.location.href='mailto:info@pps18propertygroup.com?subject='+subject+'&body='+body;document.getElementById('formNote').textContent='Your email app should open with your enquiry ready to send. If it does not, email info@pps18propertygroup.com.';});
+enquiryForm.addEventListener('submit',function(e){e.preventDefault();if(!this.reportValidity())return;const data=new FormData(this);const subject=encodeURIComponent('PPS18 website enquiry — '+String(data.get('interest')||''));const body=encodeURIComponent([...data.entries()].map(([k,v])=>k+': '+v).join('\n'));window.location.href='mailto:info@pps18propertygroup.com?subject='+subject+'&body='+body;document.getElementById('formNote').textContent='Your email app should now open with your enquiry ready to send. Please press Send to submit it. If it does not open, email info@pps18propertygroup.com.';});
 </script>
 </body>
 </html>
