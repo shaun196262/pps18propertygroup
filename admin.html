@@ -81,6 +81,9 @@
 <table><thead><tr><th>Property</th><th>Category</th><th>Location</th><th>Status</th><th>Updated</th><th>Actions</th></tr></thead>
 <tbody id="propertyRows"><tr><td colspan="5" class="empty">Loading properties…</td></tr></tbody></table>
 </div>
+<div class="toolbar"><h3>Customer enquiries</h3><button class="btn" id="refreshEnquiries" type="button">REFRESH INBOX</button></div>
+<div class="table-wrap"><table><thead><tr><th>Received</th><th>Customer</th><th>Contact</th><th>Interest</th><th>Message</th><th>Status</th></tr></thead><tbody id="enquiryRows"><tr><td colspan="6" class="empty">Loading enquiries…</td></tr></tbody></table></div>
+<div id="enquiryMessage" class="message" role="status"></div>
 <div id="dashboardMessage" class="message"></div>
 </section>
 <p class="footer-note">PPS18 Property Group · Private administrator access</p>
@@ -126,7 +129,24 @@
     $('draftCount').textContent=rows.filter(p=>p.status==='draft').length;
     dashboardProperties=rows;
     renderPropertyRows();
+    await loadEnquiries();
   }
+  async function loadEnquiries(){
+    const rows=$('enquiryRows');
+    rows.innerHTML='<tr><td colspan="6" class="empty">Loading enquiries…</td></tr>';
+    const {data,error}=await client.from('enquiries').select('id,name,email,phone,interest,message,status,created_at').order('created_at',{ascending:false}).limit(100);
+    if(error){rows.innerHTML='<tr><td colspan="6" class="empty">Enquiry inbox setup required: '+escapeHtml(error.message)+'</td></tr>';return;}
+    rows.innerHTML=(data||[]).length?(data||[]).map(q=>'<tr><td>'+niceDate(q.created_at)+'</td><td><strong>'+escapeHtml(q.name)+'</strong></td><td><a href="mailto:'+encodeURIComponent(q.email)+'">'+escapeHtml(q.email)+'</a>'+(q.phone?'<br>'+escapeHtml(q.phone):'')+'</td><td>'+escapeHtml(q.interest)+'</td><td>'+escapeHtml(q.message)+'</td><td><select class="enquiry-status" data-id="'+escapeHtml(q.id)+'"><option value="new" '+(q.status==='new'?'selected':'')+'>New</option><option value="contacted" '+(q.status==='contacted'?'selected':'')+'>Contacted</option><option value="closed" '+(q.status==='closed'?'selected':'')+'>Closed</option><option value="spam" '+(q.status==='spam'?'selected':'')+'>Spam</option></select></td></tr>').join(''):'<tr><td colspan="6" class="empty">No customer enquiries yet.</td></tr>';
+    $('enquiryMessage').textContent=(data||[]).length+' recent enquiries loaded.';
+  }
+  $('refreshEnquiries').addEventListener('click',loadEnquiries);
+  $('enquiryRows').addEventListener('change',async e=>{
+    const select=e.target.closest('.enquiry-status');if(!select)return;
+    select.disabled=true;
+    const {error}=await client.from('enquiries').update({status:select.value}).eq('id',select.dataset.id);
+    $('enquiryMessage').textContent=error?'Could not update enquiry: '+error.message:'Enquiry status updated.';
+    select.disabled=false;
+  });
   function renderPropertyRows(){
     const query=($('propertySearch').value||'').trim().toLowerCase();
     const status=$('propertyStatusFilter').value;
