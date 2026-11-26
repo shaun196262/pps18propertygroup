@@ -29,44 +29,7 @@ header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #
 <article class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85" alt="Contemporary tropical home"><span class="tag">Premium homes</span></div><div class="card-content"><h3>Premium Homes</h3><p>Contemporary architecture, beautiful interiors and quality locations.</p><a href="#current-listings">VIEW CURRENT LISTINGS →</a></div></article>
 </div>
 </div>
-</section><section class="section" id="current-listings"><div class="container"><div class="current-listings"><div class="current-listings-head"><div class="eyebrow">AVAILABLE NOW</div><h2>Current Villas & Houses Listings</h2><p>Explore properties currently available through PPS18 Property Group. Select a property to view full details and enquire.</p></div><div class="listing-tools" aria-label="Filter property listings"><label class="listing-search"><span>Search this category</span><input id="propertySearch" type="search" placeholder="Search by location or keyword…"></label><label><span>Availability</span><select id="listingTypeFilter"><option value="">For sale or rent</option><option>For Sale</option><option>For Rent</option><option>For Lease</option><option>For Sublease</option></select></label><button id="clearFilters" type="button">CLEAR</button></div><p id="listingCount" class="listing-count" aria-live="polite"></p><div id="listingGrid" class="listing-grid"><div class="empty"><h3>Loading current listings…</h3><p>Please wait while we load available properties.</p></div></div></div></div></section></main><footer><div class="container">© 2026 PPS18 Property Group · Thailand · <a href="mailto:info@pps18propertygroup.com">info@pps18propertygroup.com</a></div></footer><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-(async function(){
- const grid=document.getElementById('listingGrid');
- const client=window.supabase.createClient('https://mlyyfxywfrrsyzehveuq.supabase.co','sb_publishable_pBCFrxcZMYEswJxTpl885g_a4yvzaAr');
- const category="Villas & Houses";
- const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
- const money=p=>p.price==null?'Price on request':new Intl.NumberFormat('en-US',{style:'currency',currency:p.price_currency||'THB',maximumFractionDigits:0}).format(Number(p.price));
- try{
-  let q=client.from('properties').select('id,title,category,listing_type,location,area,price,price_currency,bedrooms,bathrooms,size_sqm,description,cover_image,image_urls,status,created_at').eq('status','published').order('created_at',{ascending:false});
-  if(category) q=q.eq('category',category);
-  const {data,error}=await q;
-  if(error) throw error;
-  const properties=data||[];
-  const search=document.getElementById('propertySearch');
-  const typeSelect=document.getElementById('listingTypeFilter');
-  const count=document.getElementById('listingCount');
-  const render=()=>{
-   const term=search.value.trim().toLowerCase();
-   const typeValue=typeSelect.value;
-   const filtered=properties.filter(p=>{
-    const haystack=[p.title,p.category,p.listing_type,p.location,p.area,p.description].filter(Boolean).join(' ').toLowerCase();
-    return (!term||haystack.includes(term))&&(!typeValue||p.listing_type===typeValue);
-   });
-   count.textContent=filtered.length+' '+(filtered.length===1?'property':'properties')+' found';
-   if(!filtered.length){grid.innerHTML='<div class="no-results"><h3>'+ (properties.length?'No matching properties':'No published properties yet') +'</h3><p>'+(properties.length?'Try another keyword or change the availability filter.':'Please contact PPS18 if you are looking for a property in this category.')+'</p><a class="btn" href="index.html#contact">CONTACT PPS18</a></div>';return;}
-   grid.innerHTML=filtered.map(p=>{
-   const photo=p.cover_image||(p.image_urls&&p.image_urls[0]);
-   const facts=[p.bedrooms!=null?p.bedrooms+' bedrooms':'',p.bathrooms!=null?p.bathrooms+' bathrooms':'',p.size_sqm!=null?p.size_sqm+' m²':''].filter(Boolean).join(' · ');
-   const excerpt=(p.description||'').length>155?p.description.slice(0,152)+'…':(p.description||'');
-   const subject=encodeURIComponent('Property enquiry: '+p.title+' ('+p.id+')');
-   return '<article class="property-card">'+(photo?'<img loading="lazy" src="'+esc(photo)+'" alt="'+esc(p.title)+'">':'<div class="no-photo">Photographs coming soon</div>')+'<div class="property-body"><span class="property-tag">'+esc(p.listing_type)+'</span><h3>'+esc(p.title)+'</h3><div class="property-meta">'+esc([p.area,p.location].filter(Boolean).join(', '))+'</div><div class="property-price">'+esc(money(p))+'</div>'+(facts?'<div class="property-meta">'+esc(facts)+'</div>':'')+'<p class="property-desc">'+esc(excerpt)+'</p><a class="property-link" href="property.html?id='+encodeURIComponent(p.id)+'">VIEW PROPERTY DETAILS</a></div></article>';
-   }).join('');
-  };
-  [search,typeSelect].forEach(el=>el.addEventListener('input',render));
-  document.getElementById('clearFilters').addEventListener('click',()=>{search.value='';typeSelect.value='';render();});
-  render();
- }catch(err){grid.innerHTML='<div class="empty"><h3>Listings are temporarily unavailable</h3><p>Please try again shortly or contact our team directly.</p><a class="btn" href="mailto:info@pps18propertygroup.com">CONTACT PPS18</a></div>';console.error(err);}
-})();
+</section><section class="section" id="current-listings"><div class="container"><div class="current-listings"><div class="current-listings-head"><div class="eyebrow">AVAILABLE NOW</div><h2>Current Villas & Houses Listings</h2><p>Explore properties currently available through PPS18 Property Group. Select a property to view full details and enquire.</p></div><div class="listing-tools" aria-label="Filter property listings"><label class="listing-search"><span>Search this category</span><input id="propertySearch" type="search" placeholder="Search by location or keyword…"></label><label><span>Availability</span><select id="listingTypeFilter"><option value="">For sale or rent</option><option>For Sale</option><option>For Rent</option><option>For Lease</option><option>For Sublease</option></select></label><button id="clearFilters" type="button">CLEAR</button></div><p id="listingCount" class="listing-count" aria-live="polite"></p><div id="listingGrid" class="listing-grid"><div class="empty"><h3>Loading current listings…</h3><p>Please wait while we load available properties.</p></div></div></div></div></section></main><footer><div class="container">© 2026 PPS18 Property Group · Thailand · <a href="mailto:info@pps18propertygroup.com">info@pps18propertygroup.com</a></div></footer><script>
+(function(){const grid=document.getElementById('listingGrid');const count=document.getElementById('listingCount');if(count)count.textContent='Listings are being updated';if(grid)grid.innerHTML='<div class="no-results"><h3>Property listings are being updated</h3><p>Our new property management system is being prepared. Please contact PPS18 for current availability.</p><a class="btn" href="index.html#contact">CONTACT PPS18</a></div>';})();
 </script><a class="pps18-whatsapp-float" href="https://wa.me/66987373938?text=Hello%20PPS18%2C%20I%20have%20a%20property%20enquiry." target="_blank" rel="noopener noreferrer" aria-label="Contact PPS18 Property Group on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.8 11.8 0 0 0 12.12 0C5.58 0 .25 5.32.25 11.87c0 2.09.55 4.13 1.6 5.93L.15 24l6.36-1.67a11.9 11.9 0 0 0 5.6 1.42h.01c6.54 0 11.87-5.33 11.87-11.87 0-3.17-1.23-6.15-3.47-8.4ZM12.12 21.7a9.85 9.85 0 0 1-5.02-1.37l-.36-.21-3.77.99 1.01-3.68-.23-.38a9.8 9.8 0 0 1-1.5-5.18c0-5.43 4.43-9.86 9.87-9.86a9.8 9.8 0 0 1 6.97 2.89 9.8 9.8 0 0 1 2.89 6.97c0 5.44-4.43 9.87-9.86 9.87Zm5.41-7.39c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.8-1.49-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.79.38-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.08-.13-.27-.2-.57-.35Z"/></svg><span>CHAT WITH PPS18</span></a>
 </body></html>
