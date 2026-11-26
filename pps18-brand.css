@@ -59,3 +59,30 @@ footer a:hover{color:#e2d7b7}
  .navbar{background:#465238!important}
  .menu{border-color:#c9bd98;color:#465238}
 }
+
+/* Final header/logo override — neutralise legacy oversized logo rules */
+html body header .container.nav{
+ height:158px!important;min-height:158px!important;padding:6px 0!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ position:relative!important;background:#fff!important;
+}
+html body header .container.nav>a.brand-logo{
+ position:relative!important;left:auto!important;top:auto!important;transform:none!important;
+ width:auto!important;height:auto!important;max-width:calc(100% - 64px)!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ margin:0 auto!important;
+}
+html body header .container.nav>a.brand-logo>img.pps18-header-logo{
+ display:block!important;width:min(480px,calc(100vw - 64px))!important;
+ height:auto!important;max-height:138px!important;max-width:100%!important;
+ object-fit:contain!important;margin:0 auto!important;
+}
+html body header .container.nav>.menu{z-index:5}
+@media(max-width:760px){
+ html body header .container.nav{height:112px!important;min-height:112px!important;padding:5px 0!important}
+ html body header .container.nav>a.brand-logo{max-width:calc(100% - 70px)!important}
+ html body header .container.nav>a.brand-logo>img.pps18-header-logo{
+  width:min(330px,calc(100vw - 88px))!important;height:auto!important;
+  max-height:100px!important;object-fit:contain!important
+ }
+}
