@@ -128,41 +128,8 @@ header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 8px 24px #
 <div id="propertyContent"><div class="notice"><h2>Loading property details…</h2><p>Please wait while we retrieve this property.</p></div></div>
 </main>
 <footer><div class="container">© 2026 PPS18 Property Group · Thailand · <a href="mailto:info@pps18propertygroup.com">info@pps18propertygroup.com</a></div></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-(async function(){
- const root=document.getElementById('propertyContent');
- const client=window.supabase.createClient('https://mlyyfxywfrrsyzehveuq.supabase.co','sb_publishable_pBCFrxcZMYEswJxTpl885g_a4yvzaAr');
- const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
- const id=new URLSearchParams(window.location.search).get('id');
- const lightbox=document.getElementById('propertyLightbox');
- const lightboxImage=document.getElementById('lightboxImage');
- const lightboxCount=document.getElementById('lightboxCount');
- let activePhotos=[],activePhoto=0;
- function showPhoto(index){if(!activePhotos.length)return;activePhoto=(index+activePhotos.length)%activePhotos.length;lightboxImage.src=activePhotos[activePhoto];lightboxImage.alt='Property photograph '+(activePhoto+1);lightboxCount.textContent=(activePhoto+1)+' / '+activePhotos.length;}
- document.querySelector('.lightbox-close').addEventListener('click',()=>lightbox.close());
- document.getElementById('lightboxPrev').addEventListener('click',()=>showPhoto(activePhoto-1));
- document.getElementById('lightboxNext').addEventListener('click',()=>showPhoto(activePhoto+1));
- lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.close();});
- document.addEventListener('keydown',event=>{if(!lightbox.open)return;if(event.key==='ArrowLeft')showPhoto(activePhoto-1);if(event.key==='ArrowRight')showPhoto(activePhoto+1);});
- if(!id){root.innerHTML='<div class="notice"><span class="eyebrow">PPS18 PROPERTY COLLECTION</span><h2>Explore Available Properties</h2><p>Choose a property from our current listings to view its photographs, price, features and full details. If you cannot find what you are looking for, our team will be happy to help.</p><a class="btn" href="listings.html">BROWSE PROPERTY LISTINGS</a><a class="back-link" href="index.html">RETURN TO HOMEPAGE</a></div>';return;}
- try{
-  const {data:p,error}=await client.from('properties').select('id,title,category,listing_type,location,area,price,price_currency,bedrooms,bathrooms,size_sqm,description,features,cover_image,image_urls,status').eq('id',id).eq('status','published').maybeSingle();
-  if(error) throw error;
-  if(!p){root.innerHTML='<div class="notice"><h2>Property not available</h2><p>This property may have been removed or is no longer being advertised.</p><a class="btn" href="listings.html">VIEW OTHER PROPERTIES</a></div>';return;}
-  const photos=[...new Set([p.cover_image,...(p.image_urls||[])].filter(Boolean))];
-  activePhotos=photos;
-  const gallery=photos.length?'<div class="gallery">'+photos.map((url,i)=>'<img loading="'+(i===0?'eager':'lazy')+'" src="'+esc(url)+'" alt="'+esc(p.title)+' photograph '+(i+1)+'" tabindex="0" role="button" aria-label="View photograph '+(i+1)+' of '+photos.length+'">').join('')+'</div>':'<div class="no-image">Photographs coming soon</div>';
-  const price=p.price==null?'Price on request':new Intl.NumberFormat('en-US',{style:'currency',currency:p.price_currency||'THB',maximumFractionDigits:0}).format(Number(p.price));
-  const fact=(value,label)=>value==null?'':'<div class="fact"><strong>'+esc(value)+'</strong><span>'+label+'</span></div>';
-  const features=(p.features||[]).length?'<section class="panel"><h2>Property features</h2><ul class="features">'+p.features.map(f=>'<li>'+esc(f)+'</li>').join('')+'</ul></section>':'';
-  const subject=encodeURIComponent('Property enquiry: '+p.title+' | PPS18 Ref: '+p.id);
-  const emailBody=encodeURIComponent('Hello PPS18 Property Group,\n\nI am interested in this property:\nProperty: '+p.title+'\nReference: '+p.id+'\nLocation: '+[p.area,p.location].filter(Boolean).join(', ')+'\nListing: '+p.listing_type+'\n\nMy name: \nMy phone / WhatsApp: \nPreferred viewing date: \nMy message: \n\nThank you.');
-  const whatsappText=encodeURIComponent('Hello PPS18, I am interested in '+p.title+'. Property reference: '+p.id+'. Please could you send me more information?');
-  root.innerHTML='<div class="layout"><div>'+gallery+(p.description?'<section class="panel"><h2>Description</h2><div class="description">'+esc(p.description)+'</div></section>':'')+features+'</div><aside class="details"><div class="eyebrow">'+esc(p.category)+' · '+esc(p.listing_type)+'</div><h1>'+esc(p.title)+'</h1><div class="meta">'+esc([p.area,p.location].filter(Boolean).join(', '))+'</div><div class="price">'+esc(price)+'</div><div class="facts">'+fact(p.bedrooms,'Bedrooms')+fact(p.bathrooms,'Bathrooms')+fact(p.size_sqm!=null?p.size_sqm+' m²':null,'Floor area')+'</div><section class="panel"><h2>Interested in this property?</h2><p class="meta">Contact PPS18 Property Group for further information or to arrange a viewing. Your enquiry will include this property’s title and reference, so our team knows exactly which listing you mean.</p><a class="btn" href="mailto:info@pps18propertygroup.com?subject='+subject+'&body='+emailBody+'">EMAIL US ABOUT THIS PROPERTY</a><a class="whatsapp" target="_blank" rel="noopener" href="https://wa.me/66987373938?text='+whatsappText+'">ENQUIRE ON WHATSAPP</a><p class="enquiry-note">PPS18 Property Group · +66 98-737-3938 · info@pps18propertygroup.com</p></section></aside></div>';
-  root.querySelectorAll('.gallery img').forEach((img,index)=>{const open=()=>{showPhoto(index);lightbox.showModal();};img.addEventListener('click',open);img.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}});});
- }catch(err){root.innerHTML='<div class="notice"><h2>Unable to load this property</h2><p>Please try again shortly or contact PPS18 Property Group.</p><a class="btn" href="mailto:info@pps18propertygroup.com">CONTACT PPS18</a></div>';console.error(err);}
-})();
+(function(){const root=document.getElementById('propertyContent');if(root)root.innerHTML='<div class="empty"><h2>Property details are being updated</h2><p>Please contact PPS18 for current property information.</p><a class="btn" href="index.html#contact">CONTACT PPS18</a></div>';const lightbox=document.getElementById('propertyLightbox');if(lightbox){const close=lightbox.querySelector('.lightbox-close');if(close)close.addEventListener('click',()=>lightbox.close());}})();
 </script>
 </body>
 </html>
