@@ -86,3 +86,13 @@ html body header .container.nav>.menu{z-index:5}
   max-height:100px!important;object-fit:contain!important
  }
 }
+
+
+/* Public-page consistency pass — remove legacy blue-grey accents */
+.property-tag,.pill{background:#eeece3!important;color:#465238!important;border:1px solid #e5e1d5}
+.category-cta{background:#f7f5ee!important;border-color:#e5e1d5!important}
+.category-cta-button,.property-link{background:#68754d!important;border-color:#68754d!important;color:#fff!important}
+.category-cta-button:hover,.property-link:hover{background:#4f5d3b!important;color:#fff!important}
+.property-filters input,.property-filters select,.field input,.field select,.field textarea{border-color:#dedfd4!important;color:#303129}
+.property-filters input:focus,.property-filters select:focus,.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid #c9bd98!important;border-color:#78835a!important}
+.current-listings,.empty,.property-card{border-color:#e5e1d5!important}
