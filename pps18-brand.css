@@ -1,0 +1,61 @@
+/* PPS18 Option 1 — warm contemporary brand system */
+:root{
+ --navy:#465238;--navy2:#596646;--gold:#78835a;--lightgold:#e2d7b7;
+ --cream:#f7f5ee;--white:#fff;--text:#303129;--muted:#77786f;
+ --line:#e5e1d5;--olive:#596646;--olive-dark:#39442b;--stone:#eeeae0;
+}
+html{scroll-padding-top:100px}
+body{background:#fff;color:var(--text)}
+h1,h2,h3{color:var(--navy)}
+header{background:#fff;box-shadow:0 5px 22px rgba(49,57,38,.09)}
+.topline{background:linear-gradient(90deg,#596646,#c9bd98 50%,#596646)}
+.navbar,.quick,.services,.contact-info,footer,.owner-bottom{
+ background:#465238!important;color:#fff!important
+}
+.navbar{border-top:1px solid rgba(255,255,255,.12)}
+nav a{color:#fbfaf6}
+nav a:hover{color:#e2d7b7}
+nav .contact-link,.btn,.category-cta-button{
+ background:#68754d!important;border-color:#68754d!important;color:#fff!important
+}
+nav .contact-link:hover,.btn:hover,.category-cta-button:hover{
+ background:#4f5d3b!important;border-color:#4f5d3b!important;color:#fff!important
+}
+.btn-outline{background:transparent!important;border-color:#fff!important;color:#fff!important}
+.hero,.phuket-hero{
+ background-color:#39442b;
+}
+.hero h1 span{color:#e2d7b7}
+.eyebrow,.gold,.shortcut-card b,.card a,.area-copy span,.island-card span,
+.owner-benefits article>span,.owner-service-grid article>span,.quick span{
+ color:#8a936c
+}
+.section,.category-shortcuts,.intro,.alt,.area-section,.contact,.owner-fee-note{background:#f7f5ee}
+.shortcut-card,.card,.area-card,.owner-service-grid article,.contact-form{
+ background:#fff;border-color:#e5e1d5;box-shadow:0 5px 18px rgba(49,57,38,.06)
+}
+.shortcut-icon,.tag,.img-caption,.contact-info{background:#465238;color:#fff}
+.shortcut-card strong,.card h3,.area-copy h3,.island-card h3,
+.feature strong,.owner-benefits h3,.owner-service-grid h4,.contact-form h3{
+ color:#465238
+}
+.feature,.promise{border-color:#78835a}
+.owner-benefits article{background:#f7f5ee;border-color:#e5e1d5}
+.owner-bottom{background:#465238}
+.services h2,.contact-info h2,footer h3{color:#f7f5ee}
+.services .heading p,.contact-info p{color:#e1e2d8}
+footer a,footer p{color:#e1e2d8}
+footer a:hover{color:#e2d7b7}
+.contact-line{border-color:rgba(255,255,255,.2)}
+.contact-line strong{color:#e2d7b7}
+.field input,.field select,.field textarea{border-color:#dedfd4}
+.field label{color:#465238}
+.form-note{color:#77786f}
+.banner{background-color:#39442b}
+.area-card,.shortcut-card,.card,.owner-service-grid article{border-radius:4px}
+.card,.shortcut-card,.area-card{transition:transform .22s ease,box-shadow .22s ease}
+.card:hover,.shortcut-card:hover,.area-card:hover{box-shadow:0 12px 28px rgba(49,57,38,.12)}
+@media(max-width:760px){
+ .navbar{background:#465238!important}
+ .menu{border-color:#c9bd98;color:#465238}
+}
