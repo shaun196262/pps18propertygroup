@@ -524,57 +524,17 @@ footer a:hover{color:var(--gold)}
 </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const PPS18_SUPABASE_URL='https://mlyyfxywfrrsyzehveuq.supabase.co';
-const PPS18_SUPABASE_KEY='sb_publishable_pBCFrxcZMYEswJxTpl885g_a4yvzaAr';
-const pps18Client=window.supabase.createClient(PPS18_SUPABASE_URL,PPS18_SUPABASE_KEY);
 document.getElementById('year').textContent=new Date().getFullYear();
-
-document.querySelectorAll('.navbar nav a').forEach(link=>{
-link.addEventListener('click',()=>{
-document.querySelector('.navbar nav').classList.remove('open');
-document.querySelector('.menu').setAttribute('aria-expanded','false');
-});
-});
-
-// Show a dedicated property-owner section only for owner enquiries.
+document.querySelectorAll('.navbar nav a').forEach(link=>link.addEventListener('click',()=>{document.querySelector('.navbar nav').classList.remove('open');document.querySelector('.menu').setAttribute('aria-expanded','false');}));
 const enquiryForm=document.getElementById('enquiryForm');
 const interestSelect=document.getElementById('interest');
 const ownerFields=document.getElementById('ownerFormFields');
 const ownerFieldIds=['propertyLocation','ownerPropertyType','ownerService'];
-function updateOwnerFields(){
-const isOwner=(interestSelect.value||'').startsWith('Property owner');
-ownerFields.hidden=!isOwner;
-ownerFieldIds.forEach(id=>{document.getElementById(id).required=isOwner;});
-}
-interestSelect.addEventListener('change',updateOwnerFields);
-updateOwnerFields();
-// Owner call-to-action takes visitors to the enquiry form and selects the owner route.
-document.querySelectorAll('.owner-bottom a[href="index.html#contact"]').forEach(link=>link.addEventListener('click',()=>{
-interestSelect.value='Property owner — discuss my options';updateOwnerFields();
-}));
-enquiryForm.addEventListener('submit',async function(e){
-e.preventDefault();
-if(!this.reportValidity())return;
-const button=this.querySelector('button[type="submit"]');
-const note=document.getElementById('formNote');
-const data=new FormData(this);
-const owner=(data.get('interest')||'').startsWith('Property owner');
-button.disabled=true;button.textContent='SENDING…';note.textContent='Sending your enquiry securely…';note.style.color='';
-try{
- const payload={name:String(data.get('name')||'').trim(),email:String(data.get('email')||'').trim(),phone:String(data.get('phone')||'').trim()||null,interest:String(data.get('interest')||''),property_location:owner?String(data.get('propertyLocation')||'').trim():null,owner_property_type:owner?String(data.get('ownerPropertyType')||''):null,owner_service:owner?String(data.get('ownerService')||''):null,message:String(data.get('message')||'').trim(),status:'new'};
- const {error}=await pps18Client.from('enquiries').insert(payload);
- if(error)throw error;
- this.reset();updateOwnerFields();
- note.textContent='Thank you. Your enquiry has been received by PPS18. Our team will be in touch.';
- note.style.color='#236b42';
-}catch(error){
- console.error('PPS18 enquiry submission:',error);
- note.textContent='We could not submit your enquiry just now. Please contact info@pps18propertygroup.com or WhatsApp +66 98-737-3938.';
- note.style.color='#a33';
-}finally{button.disabled=false;button.textContent='SEND ENQUIRY →';}
-});
+function updateOwnerFields(){const isOwner=(interestSelect.value||'').startsWith('Property owner');ownerFields.hidden=!isOwner;ownerFieldIds.forEach(id=>{document.getElementById(id).required=isOwner;});}
+interestSelect.addEventListener('change',updateOwnerFields);updateOwnerFields();
+document.querySelectorAll('.owner-bottom a[href="index.html#contact"]').forEach(link=>link.addEventListener('click',()=>{interestSelect.value='Property owner — discuss my options';updateOwnerFields();}));
+enquiryForm.addEventListener('submit',function(e){e.preventDefault();if(!this.reportValidity())return;const data=new FormData(this);const subject=encodeURIComponent('PPS18 website enquiry — '+String(data.get('interest')||''));const body=encodeURIComponent([...data.entries()].map(([k,v])=>k+': '+v).join('\n'));window.location.href='mailto:info@pps18propertygroup.com?subject='+subject+'&body='+body;document.getElementById('formNote').textContent='Your email app should open with your enquiry ready to send. If it does not, email info@pps18propertygroup.com.';});
 </script>
 </body>
 </html>
